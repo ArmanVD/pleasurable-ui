@@ -1,42 +1,24 @@
-Pull Request Template
+## What does this change?
 
-Description
+Resolves issue #1337
 
-Briefly describe the changes you are making. What feature, fix, or improvement does this implement?
+<!-- A PR should have enough detail to be understandable far in the future. e.g what is the problem/why is the change needed, how does it solve it and any questions or points of discussion. Prefer copying information from a GitHub issue over linking to it; the card may not always exist and reviewers may not have access to the board. -->
 
-Related Issues
+[livesite](https://livesite.com)
 
-Reference any issues this pull request addresses (e.g., Closes #123).
+## How Has This Been Tested?
 
-Motivation and Context
+- [ ] User test
+- [ ] Accessibility test
+- [ ] Performance test
+- [ ] Responsive Design test
+- [ ] Device test
+- [ ] Browser test
 
-Why are these changes necessary? Include any background context or links to relevant discussions.
+## Images
 
-Changes Made
+<!-- Usually only applicable to UI changes, what did it look like before and what will it look like after? -->
 
-List the major changes made in this pull request.
+## How to review
 
-•
-•
-•
-
-How to Test
-
-Provide clear instructions for testing the changes.
-
-1.
-2.
-3.
-
-Screenshots (if applicable)
-
-Include before/after screenshots or any relevant visuals for UI changes.
-
-Before After
-
-Checklist
-
-• Code follows the project’s style guidelines
-• Changes have been tested locally
-• Documentation has been updated where applicable
-• Pull request is ready for review
+<!-- Provide instructions to help others verify the change. This could take the form of "On PROD, do X and witness Y. On this branch, do X and witness Z. " -->
