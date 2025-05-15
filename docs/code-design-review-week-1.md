@@ -1,35 +1,42 @@
 # Pleasurable User Interface
 
+Deze week heb je samengewerkt binnen jouw team aan één website voor een opdrachtgever. Je hebt geleerd hoe je werkt met feature branches en hoe je gebruik kan maken van pull requests om deze vervolgens te mergen naar de `main` branch. In deze eerste week heb je met name gefocust op de functional en reliable laag. 
 
-## Code/Design review - Week 1
-bespreek de samenwerking en het gemaakte werk.
+## 1. Code/Design review - Week 1
 
+Tijdens deze code/design review gaan jullie een ander team uit de andere squad reviewen. Voordat je een ander gaat reviewen, zorg je eerst dat de meest recente versie in de `main` branch staat. 
 
-## Voortgangsgesprek 
-Met een coach bespreek je met je team jullie vorderingen
-
-
-<!--
 ## Aanpak
 
-Bedenk eerst hoe jouw feature getest kan worden
-Voordat je het gaat mergen...
+**Stap 1: zet alles live op de main**
+Jullie zijn deze week als team vanaf scratch begonnen en hebben gewerkt in verschillende (feature) branches. Pak het project board er nog eens bij en bepaal met elkaar welke taken (issues) afgerond zijn en welke branches gemerged kunnen worden met de `main`. Bekijk ook eventuele openstaande PR's en rond deze eerst af voordat je branches gaat mergen. Neem hier de tijd voor. Zet tenslotte je website ook live via render. 
 
-Eerst project plannen. Een uur. Dan project board bespreken en MoSCow en assign. (Elke vrijdag gaan ze dan hun taak “opleveren” dmv een tests, beschrijven in issues en testers “zoeken”)
+**Stap 2: voer een code/design review uit bij een andere groep**
+Kies een ander team die jullie gaan reviewen uit de andere squad met een andere opdrachtgever. De review voer je uit samen met je gehele team. 
 
+Bekijk allereerst of er code conventies zijn opgenomen en loop met elkaar de conventies door. Wat valt jullie op? Is dit herkenbaar met hoe jullie dit zelf ook hebben gedaan? Wat kunnen jullie meenemen voor je eigen samenwerking? 
 
------
+Review de website vervolgens op basis van de onderstaande criteria voor **RAPPE** websites. Schiet waar nodig een duidelijk omschreven issue in. Let daarbij op een goede titel, duidelijke omschrijving van de verbetering en voeg waar nodig een code voorbeeld of een bron toe:
+- **R**esponsive: is de website mobile-first opgebouwd? Is het responsive? Hier mag zowel feedback opgegeven worden vanuit design als development. 
+- **A**ccessible: is de website toegankelijk? Kan je er met een toetsenbord doorheen? Hoe werkt de website met een screenreader? Kijk hiervoor met elkaar naar de code en voer verschillende tests uit. 
+- **P**erforming: voer verschillende testen uit voor de performance. 
+- **P**rogressive **E**nhanced: zijn de verschillende features op de pagina Progressive Enhanced opgebouwd? Pak eventueel de deeltaak _Progressive Enhancement_ er eens bij om te bepalen hoe bepaalde componenten zo gebouwd kunnen worden dat ze het altijd blijven doen. 
 
-Misschien de code/design review van deze week helemaal inrichten op een evaluatie van hoe je code en designs reviewt via pull requests
- 
-Dus meer meta, minder over de materie zelf
- 
-Hoe geef je goede feedback op een pull request, hoe zorg je dat de pull requester door kan met jouw feedback, of nog wat stappen gaat maken, of hoe help je diegene een sprong maken
- 
-Dus minder op het maken van de pull request zelf, en meer op het reviewen ervan
+**Stap 3: integeren van geleeerde lessen** 
+Wat hebben jullie geleerd van deze code/design review? Zijn er zaken in jullie eigen werkwijze die jullie kunnen verbeteren? Of hebben jullie een mooie ontwerpoplossing gezien? Maak waar nodig nieuwe taken (issues) aan en assign deze binnen jullie team. 
 
+## 2. Voortgangsgesprek 
+In je team heb je duidelijke afspraken gemaakt over jullie werkwijze en hoe jullie elkaar op de hoogte houden van vorderingen. Elk team komt langs bij een tweetal docenten om te vertellen hoe de samenwerking tot zover is gegaan. Zorg dat je het Project Board, de verschillende branches en de PR's bij de hand hebt. 
 
+<!-- 
 
+Checklist:
+- Projectboard: inzoomen op de taken. Zijn het behapbare taken met assignees?
+- Branches: hoeveel en hoe groot zijn de branches? Naamgeving?
+- PR's: hoe zien de instructies eruit voor de reviewers? Hoe is de feedback die op een PR komt?
+- Daily stand-ups: hoe zien die eruit? Hoe vinden jullie dat?
+- Samenwerken algemeen: dingen die opvallen/nodig om te bespreken? 
 
- 
 -->
+
+
