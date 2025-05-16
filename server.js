@@ -53,4 +53,7 @@ app.listen(app.get("port"), function () {
 // error page
 // app.use((req, res, next) => {
 //   res.status(404).render('notfound.liquid'); // custom error page
+<<<<<<< HEAD
+=======
 
+>>>>>>> 41a86b305f197a7412cd237fbbdc8a96d9ed97f3
