@@ -49,3 +49,8 @@ app.listen(app.get("port"), function () {
   
 // response.render('veronica-likes.liquid', {algemeen: likedShowsJSON.data} )  // hierdoor geef je de opgevraagde data mee in de naam algemeen
 // })
+
+// error page
+// app.use((req, res, next) => {
+//   res.status(404).render('notfound.liquid'); // custom error page
+
