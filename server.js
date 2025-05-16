@@ -55,6 +55,10 @@ app.listen(app.get("port"), function () {
 // app.use((req, res, next) => {
 //   res.status(404).render('notfound.liquid'); // custom error page
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+// })
+>>>>>>> Stashed changes
+=======
 // })
 >>>>>>> Stashed changes
 =======
