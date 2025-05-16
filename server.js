@@ -35,8 +35,6 @@ app.set("port", process.env.PORT || 8000);
 app.listen(app.get("port"), function () {
   console.log(`Project draait via http://localhost:${app.get("port")}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`);
 });
-<<<<<<< Updated upstream
-=======
 
 
 
@@ -54,13 +52,3 @@ app.listen(app.get("port"), function () {
 // error page
 // app.use((req, res, next) => {
 //   res.status(404).render('notfound.liquid'); // custom error page
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-// })
->>>>>>> Stashed changes
-=======
-// })
->>>>>>> Stashed changes
-=======
-// })
->>>>>>> Stashed changes
