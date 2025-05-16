@@ -1,0 +1,41 @@
+{% if data.liked_shows == 0 %}
+    <h2>Sorry er zijn nog geen likes gegeven!</h2>
+{% else %} 
+
+{% for data in algemeen.liked_shows %}
+    <article class="programma">
+        <div>
+            <h2>{{ data.mh_show_id.name }}</h2>
+            <p class="informatie-show">{{ data.mh_show_id.body}}</p>
+        </div>
+
+        {% for person in data.mh_show_id.users %}
+            <div>
+                <img src="/images/User.svg" alt="gebruiker">
+                <p class="naam-artiest">{{ person.mh_users_id.full_name }}</p>
+            </div>
+            <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest"> 
+        {% endfor %}   
+
+        <button class="play">
+            <img src="/images/play-button.svg" alt="play button">
+        </button>
+
+        <form action="/veronica/likes" method="POST">
+            <input type="hidden" name="showid" value="{{ data.mh_show_id.id }}">
+            <button class="unlike" type="submit">
+                <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="11" fill="#0091FF" stroke="#FAFAFA" stroke-width="2"/>
+                <path d="M5.92258 12.6448L11.8553 18.4328V8.15909C10.8135 6.88572 9.00951 6.56738 8.23777 6.56738C7.46604 6.56738 5.77788 7.00148 5.19908 8.73789C4.62027 10.4743 5.44024 12.066 5.92258 12.6448Z" fill="currentcolor"/>
+                <path d="M17.788 12.6448L11.8553 18.4328V8.15909C12.8971 6.88572 14.7011 6.56738 15.4728 6.56738C16.2445 6.56738 17.9327 7.00148 18.5115 8.73789C19.0903 10.4743 18.2703 12.066 17.788 12.6448Z" fill="currentcolor"/>
+                </svg>
+            </button>
+        </form> 
+    </article>
+{% endfor %}
+{% endif %}
+
+<section class="bekijk-ook">
+
+</section>
+</section>
