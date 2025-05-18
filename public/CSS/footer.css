@@ -1,0 +1,77 @@
+footer {
+
+    .mainfooter {
+
+    background-color: var(--veronica-color-white);
+    position: sticky;
+    bottom: 0;
+
+    @media (min-width: 1080px) {
+        display: none;
+    }
+    
+        ul {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            list-style: none;
+            gap: 5%;
+            padding-block: 16px;
+
+
+            a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-decoration: none;
+                width: 22vw;
+                font-family: var(--font-bold);
+                font-size: var(--font-size-p-main);
+                color: var(--veronica-color-secondary);
+
+                img {
+                    color: var(--veronica-color-secondary);
+                    width: 24px;
+                }
+            }
+
+            a:hover, a:focus {
+                color: var(--veronica-color-main);
+                text-underline-offset: 8px;
+                text-decoration-line: 2px;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.bigscreenfooter {
+    display: none;
+
+    @media (min-width: 1080px) {
+        display: flex;
+        flex-direction: row;
+        height: 20vh;
+        overflow: hidden;
+        background-color: var(--veronica-color-darksecondary);
+    }
+}
+
+    .media, .radiostations {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .bigscreenfooter > img {
+        width: 69px;
+    }
+
+    .media > h2, .media > p {
+        color: var(--veronica-color-white);
+    }
+
+    .radiostations > a, .media > a {
+        color: var(--veronica-color-white);
+        text-decoration: none;
+    }
