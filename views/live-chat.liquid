@@ -1,0 +1,108 @@
+{% render 'partials/head.liquid'
+  , page: 'livechat'
+  , radiostation: radiostation %}
+<body data-page="{{ page }}" data-station="{{ radiostation | downcase | replace: ' ', '-' | replace: '%', 'percent' }}">
+
+  <main>
+    {% if username %}
+      <form
+        method="POST"
+        action="/logout"
+        class="logout-form">
+        <button type="submit">Log out</button>
+      </form>
+      <section id="chat-messages" class="chat-messages">
+        {% if messages and messages.size > 0 %}
+          {% for msg in messages %}
+            <div class="message-wrapper {% if msg.sender == username %}sent{% else %}received{% endif %}">
+              <div class="message-bubble">
+                {{ msg.message }}
+              </div>
+              <div class="message-meta">
+                {% if msg.sender != username %}
+                  <span class="sender-name">{{ msg.sender }}</span>
+                {% endif %}
+                <time>{{ msg.date_created | date: "%a, %-d %b - %H:%M" }}</time>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p>No messages yet.</p>
+        {% endif %}
+      </section>
+
+      <form
+        id="livechat-form"
+        method="POST"
+        action="/livechat">
+        <input
+          type="hidden"
+          name="sender"
+          value="{{ username }}">
+
+        <label for="message">Message:</label>
+        <input
+          type="text"
+          id="message"
+          name="message"
+          placeholder="Type your message..."
+          required>
+
+        <button type="submit">Send</button>
+      </form>
+    {% else %}
+      <form method="POST" action="/login">
+        <label for="username">Enter your name to join the chat:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Your name"
+          required>
+        <button type="submit">Join</button>
+      </form>
+    {% endif %}
+  </main>
+
+  <script>
+    setInterval(() => {
+      fetch('/livechat')
+        .then(response => response.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const newMessages = doc.querySelector('#chat-messages');
+          const chatSection = document.querySelector('#chat-messages');
+          chatSection.innerHTML = newMessages.innerHTML;
+
+          chatSection.scrollTop = chatSection.scrollHeight;
+        });
+    }, 1000);
+
+    window.addEventListener('load', () => {
+      const chatSection = document.querySelector('#chat-messages');
+      if (chatSection) {
+        chatSection.scrollTop = chatSection.scrollHeight;
+      }
+    });
+
+    const form = document.getElementById('livechat-form');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const data = new URLSearchParams(formData);
+
+      await fetch('/livechat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: data
+      });
+
+      form.message.value = '';
+    });
+  </script>
+
+</body>

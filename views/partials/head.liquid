@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Luister naar jouw favoriete radiostation bij Mediahuis.">
+    <title>
+      Mediahuis{% if radiostation %}
+        | {{ radiostation }}{% endif %}
+    </title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon.webp">
+    <link
+      rel="preload"
+      href="/fonts/JTUSjIg1_i6t8kCHKm459WdhyyTh89ZNpQ.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin>
+    <link
+      rel="preload"
+      href="/fonts/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin>
+    <script src="/JavaScript/main.js" type="module"></script>
+  </head>
