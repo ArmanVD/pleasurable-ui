@@ -12,6 +12,8 @@ import { Liquid } from "liquidjs";
 const app = express();
 
 // Maak werken met data uit formulieren iets prettiger
+
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Gebruik de map 'public' voor statische bestanden (resources zoals CSS, JavaScript, afbeeldingen en fonts)
@@ -116,6 +118,31 @@ app.post("/logout", (req, res) => {
   req.session.destroy(() => {
     res.redirect("/livechat");
   });
+});
+
+// Typing indicator memory object and routes
+const typingUsers = {};
+
+app.post("/typing", (req, res) => {
+  const { sender, done } = req.body;
+
+  if (!sender) return res.sendStatus(400);
+
+  if (done) {
+    delete typingUsers[sender];
+  } else {
+    typingUsers[sender] = Date.now();
+  }
+
+  res.sendStatus(200);
+});
+
+app.get("/typing-status", (req, res) => {
+  const activeTypers = Object.entries(typingUsers)
+    .filter(([_, timestamp]) => Date.now() - timestamp < 3000)
+    .map(([sender]) => sender);
+
+  res.json({ typing: activeTypers });
 });
 
 //error page

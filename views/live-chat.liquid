@@ -30,6 +30,15 @@
           <p>No messages yet.</p>
         {% endif %}
       </section>
+      <div
+        id="typing-indicator"
+        class="typing-indicator"
+        aria-live="polite"
+        style="display: none;">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
       <form
         id="livechat-form"
@@ -74,8 +83,6 @@
           const newMessages = doc.querySelector('#chat-messages');
           const chatSection = document.querySelector('#chat-messages');
           chatSection.innerHTML = newMessages.innerHTML;
-
-          chatSection.scrollTop = chatSection.scrollHeight;
         });
     }, 1000);
 
@@ -87,22 +94,64 @@
     });
 
     const form = document.getElementById('livechat-form');
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
+    if (form) {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-      const formData = new FormData(form);
-      const data = new URLSearchParams(formData);
+        const formData = new FormData(form);
+        const data = new URLSearchParams(formData);
 
-      await fetch('/livechat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: data
+        await fetch('/livechat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: data
+        });
+
+        form.message.value = '';
       });
 
-      form.message.value = '';
-    });
+      const messageInput = document.getElementById('message');
+      const typingIndicator = document.getElementById('typing-indicator');
+      let typingTimeout;
+
+      messageInput.addEventListener('input', () => {
+        clearTimeout(typingTimeout);
+
+        fetch('/typing', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sender: form.sender.value })
+        });
+
+        typingTimeout = setTimeout(() => {
+          fetch('/typing', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sender: form.sender.value, done: true })
+          });
+        }, 3000);
+      });
+
+      setInterval(() => {
+        fetch('/typing-status')
+          .then(res => res.json())
+          .then(data => {
+            if (data.typing.includes(form.sender.value)) {
+              data.typing = data.typing.filter(name => name !== form.sender.value);
+            }
+
+            if (data.typing.length > 0) {
+              typingIndicator.style.display = 'block';
+              typingIndicator.innerHTML = `${data.typing.join(", ")} ${data.typing.length > 1 ? 'are' : 'is'} typing...`;
+            } else {
+              typingIndicator.style.display = 'none';
+              typingIndicator.innerHTML = '';
+            }
+          });
+      }, 1000);
+    }
   </script>
 
 </body>
