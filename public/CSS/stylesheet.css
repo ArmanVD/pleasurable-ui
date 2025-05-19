@@ -51,3 +51,31 @@
   --font-weight-medium: 500;
   --font-weight-regular: 400;
 }
+
+body {
+
+--font-black: "FontBlack";
+--font-bold: "FontBold";
+--font-regular: "FontRegular";
+--font-size-h1: 20px;
+--font-size-h2: 16px;
+--font-size-p-main: 12px;
+--font-size-p-small: 10px;
+}
+
+@font-face {
+font-family: "FontBlack";
+font-weight: 900;
+src: url("/fonts/brutal-type-black.woff2") format("woff2");
+}
+
+@font-face {
+font-family: "FontBold";
+font-weight: bold;
+src: url("/fonts/brutal-type-bold.woff2") format("woff2");
+}
+
+@font-face {
+font-family: "FontRegular";
+src: url("/fonts/brutal-type-regular.woff2") format("woff2");
+}
