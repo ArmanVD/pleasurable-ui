@@ -1,0 +1,63 @@
+.veronica-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--radio-veronica);
+    padding-block: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    img {
+        width: 93px;
+    }   
+
+    .footer-becomes-header {
+        display: none;
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+            gap: 32px;
+
+            a {
+                text-decoration: none;
+                font-family: var(--font-bold);
+                color: var(--bg-white);
+            }
+        }
+    }
+}
+
+
+
+
+.hoofd-nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-white);
+    padding-block: 16px;
+    position: sticky;
+    top: 92px;
+    z-index: 9;
+
+    ul {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        gap: 32px;
+        margin-left: 20px;
+        list-style: none;
+
+        a {
+            font-family: var(--font-black);
+            font-size: var(--font-size-normal);
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--radio-veronica);
+        }
+    }
+}
