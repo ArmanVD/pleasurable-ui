@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--veronica-color-secondary);
+    background-color: var(--radio-veronica);
     padding-block: 30px;
     position: sticky;
     top: 0;
@@ -25,7 +25,7 @@
             a {
                 text-decoration: none;
                 font-family: var(--font-bold);
-                color: var(--veronica-color-white);
+                color: var(--bg-white);
             }
         }
     }
@@ -37,7 +37,7 @@
 .hoofd-nav {
     display: flex;
     justify-content: center;
-    background-color: var(--veronica-color-white);
+    background-color: var(--bg-white);
     padding-block: 16px;
     position: sticky;
     top: 92px;
@@ -54,10 +54,10 @@
 
         a {
             font-family: var(--font-black);
-            font-size: var(--font-size-h2);
+            font-size: var(--font-size-normal);
             text-transform: uppercase;
             text-decoration: none;
-            color: var(--veronica-color-secondary);
+            color: var(--radio-veronica);
         }
     }
 }

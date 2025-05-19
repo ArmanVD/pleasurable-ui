@@ -2,7 +2,7 @@ footer {
 
     .mainfooter {
 
-    background-color: var(--veronica-color-white);
+    background-color: var(--bg-white);
     position: sticky;
     bottom: 0;
     
@@ -23,10 +23,10 @@ footer {
                 width: 22vw;
                 font-family: var(--font-bold);
                 font-size: var(--font-size-p-main);
-                color: var(--veronica-color-secondary);
+                color: var(--radio-veronica);
 
                 img {
-                    color: var(--veronica-color-secondary);
+                    color: var(--radio-veronica);
                     width: 24px;
                 }
             }
@@ -49,10 +49,10 @@ footer {
     }
 
     .media > h2, .media > p {
-        color: var(--veronica-color-white);
+        color: var(--bg-white);
     }
 
     .radiostations > a, .media > a {
-        color: var(--veronica-color-white);
+        color: var(--bg-white);
         text-decoration: none;
     }
