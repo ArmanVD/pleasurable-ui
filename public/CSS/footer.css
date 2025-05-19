@@ -22,7 +22,7 @@ footer {
                 text-decoration: none;
                 width: 22vw;
                 font-family: var(--font-bold);
-                font-size: var(--font-size-p-main);
+                font-size: var(--font-size-normal);
                 color: var(--radio-veronica);
 
                 img {
