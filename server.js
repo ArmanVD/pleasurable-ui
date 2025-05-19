@@ -43,24 +43,7 @@ app.get("/veronica/likes", async function (request, response) {
   response.render("veronica-likes.liquid", { algemeen: likedShowsJSON.data }); // hierdoor geef je de opgevraagde data mee in de naam algemeen
 });
 
-<<<<<<< Updated upstream
 //error page
 app.use((req, res, next) => {
   res.status(404).render("404.liquid"); // custom error page
 });
-=======
-
-
-
-// app.get('/veronica/likes', async function (request, response) {
-
-//   const likedShows = await fetch('https://fdnd-agency.directus.app/items/mh_accounts/7?fields=id,name,liked_shows.mh_show_id.*.*.*')
-//   const likedShowsJSON = await likedShows.json()
-  
-// response.render('veronica-likes.liquid', {algemeen: likedShowsJSON.data} )  // hierdoor geef je de opgevraagde data mee in de naam algemeen
-// })
-
-// error page
-// app.use((req, res, next) => {
-//   res.status(404).render('notfound.liquid'); // custom error page
->>>>>>> Stashed changes
