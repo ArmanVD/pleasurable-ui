@@ -61,30 +61,3 @@
         }
     }
 }
-
-.datum-nav {
-    background-color: var(--veronica-color-white);
-    padding-block: 8px;
-    position: sticky;
-    top: 143px;
-    z-index: 8;
-
-    ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        gap: 5%;
-        list-style: none;
-    
-        button {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            border: none;
-            background-color: white;
-            font-family: var(--font-bold);
-            font-size: var(--font-size-p-main);
-        }
-    }
-}
