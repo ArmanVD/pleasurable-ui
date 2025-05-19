@@ -1,3 +1,9 @@
+{% render 'partials/head.liquid' %}
+
+{% render 'partials/header.liquid' %}
+
+
+
 {% if data.liked_shows == 0 %}
     <h2>Sorry er zijn nog geen likes gegeven!</h2>
 {% else %} 
@@ -39,3 +45,5 @@
 
 </section>
 </section>
+
+{% render 'partials.foot.liquid' %}
