@@ -14,6 +14,7 @@
 
     .footer-becomes-header {
         display: none;
+<<<<<<< Updated upstream
 
         ul {
             display: flex;
@@ -26,6 +27,24 @@
                 text-decoration: none;
                 font-family: var(--font-bold);
                 color: var(--veronica-color-white);
+=======
+    
+        @media ( min-width: 1080px ) {
+            display: block;
+    
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                list-style: none;
+                gap: 32px;
+    
+                a {
+                    text-decoration: none;
+                    font-family: var(--font-bold);
+                    color: var(--veronica-color-white);
+                }
+>>>>>>> Stashed changes
             }
         }
     }
