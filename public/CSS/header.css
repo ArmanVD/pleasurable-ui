@@ -7,10 +7,22 @@
     position: sticky;
     top: 0;
     z-index: 10;
+    width: 100%;
+}
 
-    img {
-        width: 93px;
-    }   
+.upper-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.upper-header #switch {
+    margin-left: 80%;
+}
+
+.upper-header > img {
+    width: 93px;
+}
+
 
     .footer-becomes-header {
         display: none;
@@ -29,7 +41,6 @@
             }
         }
     }
-}
 
 
 
