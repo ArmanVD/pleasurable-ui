@@ -16,6 +16,12 @@
   text-decoration: none;
 }
 
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   background-color: light-dark(var(--bg-light), var(--bg-dark));
   color: light-dark(var(--text-light), var(--text-dark));

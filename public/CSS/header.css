@@ -42,6 +42,7 @@
     position: sticky;
     top: 92px;
     z-index: 9;
+    overflow-x: scroll;
 
     ul {
         display: flex;

@@ -1,9 +1,11 @@
+
 {% render 'partials/head.liquid' %}
 
 {% render 'partials/header.liquid' %}
 
 
-
+<section class="programma-sec">
+    
 {% if data.liked_shows == 0 %}
     <h2>Sorry er zijn nog geen likes gegeven!</h2>
 {% else %} 
@@ -17,14 +19,14 @@
 
         {% for person in data.mh_show_id.users %}
             <div>
-                <img src="/images/User.svg" alt="gebruiker">
+                <img src="/assets/User.svg" alt="gebruiker">
                 <p class="naam-artiest">{{ person.mh_users_id.full_name }}</p>
             </div>
             <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest"> 
         {% endfor %}   
 
         <button class="play">
-            <img src="/images/play-button.svg" alt="play button">
+            <img src="/assets/play-button.svg" alt="play button">
         </button>
 
         <form action="/veronica/likes" method="POST">
@@ -46,4 +48,4 @@
 </section>
 </section>
 
-{% render 'partials.foot.liquid' %}
+{% render 'partials/foot.liquid' %}

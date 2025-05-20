@@ -66,16 +66,16 @@ body {
 @font-face {
 font-family: "FontBlack";
 font-weight: 900;
-src: url("/fonts/brutal-type-black.woff2") format("woff2");
+src: url("/assets/brutal-type-black.woff2") format("woff2");
 }
 
 @font-face {
 font-family: "FontBold";
 font-weight: bold;
-src: url("/fonts/brutal-type-bold.woff2") format("woff2");
+src: url("/assets/brutal-type-bold.woff2") format("woff2");
 }
 
 @font-face {
 font-family: "FontRegular";
-src: url("/fonts/brutal-type-regular.woff2") format("woff2");
+src: url("/assets/brutal-type-regular.woff2") format("woff2");
 }
