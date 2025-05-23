@@ -1,4 +1,6 @@
-
+body {
+    overflow: hidden;
+}
 
 .programma-sec {
 
@@ -7,7 +9,7 @@
     justify-content: flex-start;
     flex-direction: column;
     row-gap: 20px;
-    overflow: scroll;
+    overflow-y: scroll;
     height: 65vh;
     padding-top: 8px;
 }
