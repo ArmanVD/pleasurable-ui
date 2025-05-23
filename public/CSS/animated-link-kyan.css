@@ -7,18 +7,20 @@
 .hoofd-nav a::after {
     content: '';
     position: absolute;
-    background: #fe0170;
+    background: #0091ff;
     height: 2px;
     bottom: 0;
     left: 0;
-    width: 0;
-    transition: width 0.3s ease;
+    width: 0%;
+    transition: width 0.3s ease, color 0.3s ease;
 }
 
 .hoofd-nav a:hover::after {
     width: 100%;
+    background: #fe0170;
 }
 
 .hoofd-nav a:hover {
     color: #fe0170;
+    transition: color 0.3s ease;
 }
