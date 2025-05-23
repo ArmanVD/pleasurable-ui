@@ -4,74 +4,136 @@
 <body data-page="{{ page }}" data-station="{{ radiostation | downcase | replace: ' ', '-' | replace: '%', 'percent' }}">
 
   <main>
-    {% if username %}
-      <form
-        method="POST"
-        action="/logout"
-        class="logout-form">
-        <button type="submit">Log uit</button>
-      </form>
-      <section id="chat-messages" class="chat-messages">
-        {% if messages and messages.size > 0 %}
-          {% for msg in messages %}
-            <div class="message-wrapper {% if msg.sender == username %}sent{% else %}received{% endif %}">
-              <div class="message-bubble">
-                {{ msg.message }}
-              </div>
-              <div class="message-meta">
-                {% if msg.sender != username %}
-                  <span class="sender-name">{{ msg.sender }}</span>
-                {% endif %}
-                <time>{{ msg.date_created | date: "%a, %-d %b - %H:%M" }}</time>
-              </div>
+    <div class="live-chat-wrapper">
+      <article class="live-chat">
+        {% if username %}
+          <form
+            method="POST"
+            action="/logout"
+            class="logout-form">
+            <button type="submit">Log uit</button>
+          </form>
+
+          <div class="chat-scroll-area">
+            <section id="chat-messages" class="chat-messages">
+              {% if messages and messages.size > 0 %}
+                {% for msg in messages %}
+                  <div class="message-wrapper {% if msg.sender == username %}sent{% else %}received{% endif %}">
+                    <div class="message-bubble">
+                      {{ msg.message }}
+                    </div>
+                    <div class="message-meta">
+                      {% if msg.sender != username %}
+                        <span class="sender-name">{{ msg.sender }}</span>
+                      {% endif %}
+                      <time>{{ msg.date_created | date: "%a, %-d %b - %H:%M" }}</time>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <p>No messages yet.</p>
+              {% endif %}
+            </section>
+
+            <div
+              id="typing-indicator"
+              class="typing-indicator"
+              aria-live="polite"
+              style="display: none;">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
-          {% endfor %}
+          </div>
+
+          <form
+            id="livechat-form"
+            class="chat-input"
+            method="POST"
+            action="/livechat">
+            <input
+              type="hidden"
+              name="sender"
+              value="{{ username }}">
+            <div class="input-wrapper">
+              <input
+                type="text"
+                id="message"
+                name="message"
+                placeholder="Type je bericht hier..."
+                required>
+              <button type="submit">Versturen</button>
+            </div>
+          </form>
         {% else %}
-          <p>No messages yet.</p>
+          <form method="POST" action="/login">
+            <label for="username">Enter your name to join the chat:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Your name"
+              required>
+            <button type="submit">Join</button>
+          </form>
         {% endif %}
-      </section>
-      <div
-        id="typing-indicator"
-        class="typing-indicator"
-        aria-live="polite"
-        style="display: none;">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <form
-        id="livechat-form"
-        class="chat-input"
-        method="POST"
-        action="/livechat">
-        <input
-          type="hidden"
-          name="sender"
-          value="{{ username }}">
-
-          {% comment %} <label for="message">Message:</label> {% endcomment %}
-        <input
-          type="text"
-          id="message"
-          name="message"
-          placeholder="Type je bericht hier..."
-          required>
-
-        <button type="submit">Versturen</button>
-      </form>
-    {% else %}
-      <form method="POST" action="/login">
-        <label for="username">Enter your name to join the chat:</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Your name"
-          required>
-        <button type="submit">Join</button>
-      </form>
-    {% endif %}
+      </article>
+      <aside class="right-sidebar-live-chat">
+        <article class="now-playing">
+          <img src="/assets/tory-lanez.jpeg" alt="Tory Lanez - Hurt From Mercury" />
+          <p class="style-small">
+            Arman Voogd
+          </p>
+          <h2 class="style2">
+            R&B Gems
+          </h2>
+          <p class="style-small">
+            Hurt From Mercury – Tory Lanez
+          </p>
+          <div class="player-controls">
+            <a href="#" class="style-label">
+              Kijk live
+            </a>
+            <button class="play-button"><img src="/assets/play-icon.svg" alt=""></button>
+            <a href="/livechat" class="style-label">
+              Live Chat
+            </a>
+          </div>
+        </article>
+        <article class="song-history">
+          <h3 class="style3">Eerder op Radio Veronica</h3>
+          <ul>
+            <li class="now-playing-history">
+              <span class="time-active style-label">Nu</span>
+              <img src="/assets/tory-lanez.jpeg" alt="Hurt From Mercury" />
+              <div>
+                <p class="style-label">Hurt From Mercury</p>
+                <p class="style-small">Tory Lanez</p>
+              </div>
+            </li>
+            <li class="now-playing-history">
+              <span class="time">16:49</span>
+              <img src="/assets/amy-winehouse.webp" alt="Back to Black" />
+              <div>
+                <p class="style-label">Back to Black</p>
+                <p class="style-small">Amy Winehouse</p>
+              </div>
+            </li>
+            <li class="now-playing-history TCV">
+              <span class="time">16:45</span>
+              <img src="/assets/tory-lanez.jpeg" alt="The Color Violet" />
+              <div>
+                <p class="style-label">The Color Violet</p>
+                <p class="style-small">Tory Lanez</p>
+              </div>
+            </li>
+          </ul>
+          <a href="#" class="full-list-link style-label">VOLLEDIGE LIJST
+            <span>→</span>
+          </a>
+        </article>
+      </aside>
+    </div>
   </main>
 
   <script>
