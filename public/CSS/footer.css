@@ -2,7 +2,7 @@ footer {
 
     .mainfooter {
 
-    background-color: var(--bg-white);
+    background-color: var(--bg-light);
     position: sticky;
     bottom: 0;
     
