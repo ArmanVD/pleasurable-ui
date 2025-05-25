@@ -3,10 +3,10 @@
 
     @media (min-width: 1136px) {
         display: flex;
-        justify-content: flex-start;
         background: var(--radio-veronica);
         padding-inline: 40px;
         padding-block: 30px;
+        width: 100%;
     }
 }
 
