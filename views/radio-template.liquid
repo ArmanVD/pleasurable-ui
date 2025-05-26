@@ -139,6 +139,42 @@
                         {{ show.body }}</p>
                     {% endif %}
                     <span class="time style-label">{{ show.start_time }} - {{ show.end_time }}</span>
+
+                    
+                    {% assign is_liked = false %}
+                    {% for like in likes.liked_shows %}
+                        {% if like.mh_show_id.id == data.show.id %}
+                            {% assign is_liked = true %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if is_liked %}
+        
+                    <form action="/veronica/dislike" method="POST" data-enhanced="form-{{ show.id }}">
+                        <input type="hidden" name="showid" value="{{ show.id }}">
+                        <button class="like" type="submit">
+                            <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="11" fill="#0091FF" stroke="#FAFAFA" stroke-width="2"/>
+                            <path d="M5.92258 12.6448L11.8553 18.4328V8.15909C10.8135 6.88572 9.00951 6.56738 8.23777 6.56738C7.46604 6.56738 5.77788 7.00148 5.19908 8.73789C4.62027 10.4743 5.44024 12.066 5.92258 12.6448Z" fill="#FE0170"/>
+                            <path d="M17.788 12.6448L11.8553 18.4328V8.15909C12.8971 6.88572 14.7011 6.56738 15.4728 6.56738C16.2445 6.56738 17.9327 7.00148 18.5115 8.73789C19.0903 10.4743 18.2703 12.066 17.788 12.6448Z" fill="#FE0170"/>
+                            </svg>
+                        </button>
+                    </form>
+        
+                    {% else %}
+        
+                    <form action="/veronica/like" method="POST" data-enhanced="form-{{ show.id }}">
+                        <input type="hidden" name="showid" value="{{ show.id }}">
+                        <button class="like" type="submit">
+                            <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="11" fill="#0091FF" stroke="#FAFAFA" stroke-width="2"/>
+                            <path d="M5.92258 12.6448L11.8553 18.4328V8.15909C10.8135 6.88572 9.00951 6.56738 8.23777 6.56738C7.46604 6.56738 5.77788 7.00148 5.19908 8.73789C4.62027 10.4743 5.44024 12.066 5.92258 12.6448Z" fill="currentcolor"/>
+                            <path d="M17.788 12.6448L11.8553 18.4328V8.15909C12.8971 6.88572 14.7011 6.56738 15.4728 6.56738C16.2445 6.56738 17.9327 7.00148 18.5115 8.73789C19.0903 10.4743 18.2703 12.066 17.788 12.6448Z" fill="currentcolor"/>
+                            </svg>
+                        </button>
+                    </form>
+
+                    {% endif %}
                   </div>
                 </div>
               </li>
@@ -179,3 +215,53 @@
   {% assign formatted_date = selected_day.formatted_date | default: "Selecteer een dag" %}
   {% render 'partials/foot.liquid' %}
 </body>
+
+
+
+<script type="module">
+
+    document.addEventListener('submit', async function(event) {
+
+    const form = event.target
+
+    if (!form.hasAttribute('data-enhanced')) {
+     return
+    }
+
+    // default weghalen en loading state toegevoegd
+
+    event.preventDefault()
+
+    form.classList.add('loading')
+
+
+
+    let formData = new FormData(form)
+
+    if (event.submitter) {
+        formData.append(event.submitter.name, event.submitter.value)
+    }
+
+    const response = await fetch (form.action, {
+    method: form.method,
+    body: new URLSearchParams(formData)
+    })
+
+    const responseText = await response.text()
+
+    const parser = new DOMParser()
+    const responseDOM = parser.parseFromString(responseText, 'text/html')
+
+    const newState = responseDOM.querySelector('[data-enhanced="' + form.getAttribute('data-enhanced') + '"]')
+
+    // laoding state remove
+    form.classList.remove('loading')
+
+    // succes state
+    if (form.action.includes("/like")) {
+        newState.classList.add('succes')
+    }
+    form.outerHTML = newState.outerHTML
+})
+
+</script>
