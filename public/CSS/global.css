@@ -7,7 +7,7 @@
   navigation: auto;
 }
 
-.programma-sec { view-transition-name: radio-schedule }
+/* .programma-sec { view-transition-name: radio-schedule }
 
 
 ::view-transition-old(gaaf) {
@@ -27,7 +27,7 @@
         transform: translate(50%);
         opacity: 0;
     }
-}
+} */
 
 
 * {
