@@ -9,13 +9,12 @@ import session from "express-session";
 import { Liquid } from "liquidjs";
 
 const app = express();
-app.use(express.static('public'))
+app.use(express.static("public"));
 
 // Maak werken met data uit formulieren iets prettiger
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 app.use(
   session({
@@ -147,32 +146,28 @@ app.get("/", async function (request, response) {
   response.render("index.liquid");
 });
 
-
-
 app.get("/veronica/likes", async function (request, response) {
   const likedShows = await fetch("https://fdnd-agency.directus.app/items/mh_accounts/7?fields=id,name,liked_shows.mh_show_id.*.*.*");
   const likedShowsJSON = await likedShows.json();
 
-  response.render("veronica-likes.liquid", { algemeen: likedShowsJSON.data }); 
+  response.render("veronica-likes.liquid", { algemeen: likedShowsJSON.data });
 });
 
-app.post('/veronica/like', async function (request, response) {
-
-  //console.log(request.body) 
-  const testConsole = await fetch('https://fdnd-agency.directus.app/items/mh_accounts_shows', {
-    method: 'POST',                       
+app.post("/veronica/like", async function (request, response) {
+  //console.log(request.body)
+  const testConsole = await fetch("https://fdnd-agency.directus.app/items/mh_accounts_shows", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
+      "Content-Type": "application/json;charset=UTF-8",
     },
     body: JSON.stringify({
-      mh_accounts_id: 7,                  
-      mh_show_id: request.body.showid     
-     }),
-  })
-    // console.log(testConsole)
-    response.redirect(303, '/veronica' )  
-})
-
+      mh_accounts_id: 7,
+      mh_show_id: request.body.showid,
+    }),
+  });
+  // console.log(testConsole)
+  response.redirect(303, "/veronica");
+});
 
 function sanitizeInput(input) {
   return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -266,7 +261,6 @@ app.get("/typing-status", (req, res) => {
 app.use((req, res, next) => {
   res.status(404).render("404page.liquid"); // custom error page
 });
-
 
 app.set("port", process.env.PORT || 8000);
 
