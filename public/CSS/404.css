@@ -19,6 +19,8 @@
 
 .footer-becomes-header404 a {
     color: var(--bg-light);
+    font-family: var(--font-bold);
+    text-transform: uppercase;
 }
 
 .footer-becomes-header404 li:last-of-type {
