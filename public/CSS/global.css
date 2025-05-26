@@ -7,6 +7,27 @@
   navigation: auto;
 }
 
+.programma-sec { view-transition-name: radio-schedule }
+
+
+::view-transition-old(gaaf) {
+    animation: slide 0.2s linear forwards;
+}
+
+::view-transition-new(gaaf) {
+    animation: slide 0.2s linear reverse;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(50%);
+        opacity: 0;
+    }
+}
 
 
 * {
