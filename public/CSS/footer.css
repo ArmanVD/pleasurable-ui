@@ -1,0 +1,58 @@
+footer {
+
+    .mainfooter {
+
+    background-color: var(--bg-white);
+    position: sticky;
+    bottom: 0;
+    
+        ul {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            list-style: none;
+            gap: 5%;
+            padding-block: 16px;
+
+
+            a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-decoration: none;
+                width: 21vw;
+                font-family: var(--font-bold);
+                font-size: var(--font-size-normal);
+                color: var(--radio-veronica);
+
+                img {
+                    color: var(--radio-veronica);
+                    width: 24px;
+                }
+            }
+        }
+    }
+}
+
+.bigscreenfooter {
+    display: none;
+}
+
+    .media, .radiostations {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .bigscreenfooter > img {
+        width: 69px;
+    }
+
+    .media > h2, .media > p {
+        color: var(--bg-white);
+    }
+
+    .radiostations > a, .media > a {
+        color: var(--bg-white);
+        text-decoration: none;
+    }

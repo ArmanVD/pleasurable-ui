@@ -8,17 +8,14 @@ import session from "express-session";
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from "liquidjs";
 
-// Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express();
+app.use(express.static('public'))
 
 // Maak werken met data uit formulieren iets prettiger
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Gebruik de map 'public' voor statische bestanden (resources zoals CSS, JavaScript, afbeeldingen en fonts)
-// Bestanden in deze map kunnen dus door de browser gebruikt worden
-app.use(express.static("public"));
 
 app.use(
   session({
@@ -49,6 +46,7 @@ app.set("port", process.env.PORT || 8000);
 app.listen(app.get("port"), function () {
   console.log(`Project draait via http://localhost:${app.get("port")}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`);
 });
+
 
 app.get("/veronica/likes", async function (request, response) {
   const likedShows = await fetch("https://fdnd-agency.directus.app/items/mh_accounts/7?fields=id,name,liked_shows.mh_show_id.*.*.*");
@@ -149,3 +147,4 @@ app.get("/typing-status", (req, res) => {
 app.use((req, res, next) => {
   res.status(404).render("404page.liquid"); // custom error page
 });
+
