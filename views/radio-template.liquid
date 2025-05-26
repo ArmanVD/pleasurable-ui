@@ -1,0 +1,181 @@
+{% render 'partials/head.liquid'
+  , page: 'radio'
+  , radiostation: radiostation %}
+<body data-page="{{ page }}" data-station="{{ radiostation | downcase | replace: ' ', '-' | replace: '%', 'percent' }}">
+  {% render 'partials/header.liquid'
+    , radiostation: radiostation %}
+  <main>
+    <aside class="left-sidebar">
+      <article class="now-playing">
+        <img src="/images/tory-lanez.jpeg" alt="Tory Lanez - Hurt From Mercury" />
+        <p class="style-small">
+          The Color Violet
+        </p>
+        <p>
+          Tory Lanez
+        </p>
+        <div class="player-controls">
+          <a href="#" class="style-label">
+            Kijk live
+          </a>
+          <button class="play-button"><img src="/assets/play-icon.svg" alt=""></button>
+          <a href="/livechat" class="style-label">
+            Live Chat
+          </a>
+        </div>
+      </article>
+      <article class="song-history">
+        <h3 class="style3">Eerder op {{ radiostation }}</h3>
+        <ul>
+          <li class="now-playing-history">
+            <span class="time-active style-label">Nu</span>
+            <img src="/images/tory-lanez.jpeg" alt="Hurt From Mercury" />
+            <div>
+              <p class="style-label">Hurt From Mercury</p>
+              <p class="style-small">Tory Lanez</p>
+            </div>
+          </li>
+          <li class="now-playing-history">
+            <span class="time">16:49</span>
+            <img src="/images/amy-winehouse.webp" alt="Back to Black" />
+            <div>
+              <p class="style-label">Back to Black</p>
+              <p class="style-small">Amy Winehouse</p>
+            </div>
+          </li>
+          <li class="now-playing-history TCV">
+            <span class="time">16:45</span>
+            <img src="/images/tory-lanez.jpeg" alt="The Color Violet" />
+            <div>
+              <p class="style-label">The Color Violet</p>
+              <p class="style-small">Tory Lanez</p>
+            </div>
+          </li>
+        </ul>
+        <a href="#" class="full-list-link style-label">VOLLEDIGE LIJST
+          <span>→</span>
+        </a>
+      </article>
+    </aside>
+    <article class="radio-schedule">
+      <section class="schedule-tabs">
+        <ul class="style-small">
+          <li class="style-label">PROGRAMMERING</li>
+          <li>DJ’S</li>
+          <li>PLAYLIST</li>
+          <li>FREQUENTIES</li>
+          <li>LIKES</li>
+        </ul>
+      </section>
+      <section class="schedule-days">
+        <ul>
+          <li data-date="2025-03-31" data-weekday="1">
+            <button aria-label="Toon programmering voor maandag 31 maart">
+              <span class="day">Maa</span>
+              <span class="date">31</span>
+            </button>
+          </li>
+          <li data-date="2025-04-01" data-weekday="2">
+            <button aria-label="Toon programmering voor dinsdag 1 april">
+              <span class="day">Din</span>
+              <span class="date">1</span>
+            </button>
+          </li>
+          <li data-date="2025-04-02" data-weekday="3">
+            <button aria-label="Toon programmering voor woensdag 2 april">
+              <span class="day">Woe</span>
+              <span class="date">2</span>
+            </button>
+          </li>
+          <li data-date="2025-04-03" data-weekday="4">
+            <button aria-label="Toon programmering voor donderdag 3 april">
+              <span class="day">Don</span>
+              <span class="date">3</span>
+            </button>
+          </li>
+          <li data-date="2025-04-04" data-weekday="5">
+            <button aria-label="Toon programmering voor vrijdag 4 april">
+              <span class="day">Vri</span>
+              <span class="date">4</span>
+            </button>
+          </li>
+          <li data-date="2025-04-05" data-weekday="6">
+            <button aria-label="Toon programmering voor zaterdag 5 april">
+              <span class="day">Zat</span>
+              <span class="date">5</span>
+            </button>
+          </li>
+          <li data-date="2025-04-06" data-weekday="0">
+            <button aria-label="Toon programmering voor zondag 6 april">
+              <span class="day">Zon</span>
+              <span class="date">6</span>
+            </button>
+          </li>
+        </ul>
+      </section>
+      <section class="schedule-timeline">
+        {% if selected_day and selected_day.shows and selected_day.shows.size > 0 %}
+          <ul>
+            {% for show in selected_day.shows %}
+              {% assign is_current = false %}
+              {% if show.start_minutes and show.end_minutes and currentMinutes %}
+                {% if show.start_minutes < currentMinutes and show.end_minutes > currentMinutes %}
+                  {% assign is_current = true %}
+                {% endif %}
+              {% endif %}
+              <li
+                data-date="{{ show.date }}"
+                data-weekday="{{ show.weekday }}"
+                data-showid="{{ show.id }}"
+                class="{% if is_current == true %}current-show{% endif %}">
+                <div class="show-card">
+                  <div class="show-image">
+                    <img src="https://fdnd-agency.directus.app/assets/{{ show.thumbnail }}" alt="{{ show.name | default: 'Show afbeelding' }}" />
+                  </div>
+                  <div class="show-info">
+                    <h4 class="style3">{{ show.name }}</h4>
+                    {% if show.body %}
+                      <p class="style-normal">
+                        {{ show.body }}</p>
+                    {% endif %}
+                    <span class="time style-label">{{ show.start_time }} - {{ show.end_time }}</span>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="no-shows-message">Geen programma’s gevonden voor deze dag.</p>
+        {% endif %}
+      </section>
+    </article>
+    <aside class="right-sidebar">
+      <section class="highlights">
+        <div class="highlights-header">
+          <h3 class="style2">Highlights</h3>
+          <a href="#" class="show-all style-label">Toon alles</a>
+        </div>
+        <article class="highlight">
+          <img src="/images/kane.png" alt="KANE over comeback in Ook Goeiemorgen" />
+          <div class="highlight-info">
+            <h4 class="style-label">KANE over comeback in Ook Goeiemorgen: 'Briljant om even...</h4>
+          </div>
+        </article>
+        <article class="highlight">
+          <img src="/images/the-indien.png" alt="The Indien speelt Be Yours" />
+          <div class="highlight-info">
+            <h4 class="style-label">The Indien speelt Be Yours en nieuwe single Sleep When I'm ...</h4>
+          </div>
+        </article>
+        <article class="highlight">
+          <img src="/images/frequenties.png" alt="Check jouw nieuwe frequenties" />
+          <div class="highlight-info">
+            <h4 class="style-label">Check jouw nieuwe frequenties met de FM-checker van Radio V...</h4>
+          </div>
+        </article>
+      </section>
+    </aside>
+  </main>
+  {% assign formatted_date = selected_day.formatted_date | default: "Selecteer een dag" %}
+  {% render 'partials/foot.liquid' %}
+</body>
