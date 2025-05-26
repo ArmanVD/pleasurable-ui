@@ -1,0 +1,267 @@
+main {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.right-sidebar-live-chat {
+  width: 33.3333%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  padding: 2rem;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05);
+
+  .sidebar-tabs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+
+    .sidebar-active {
+      text-decoration: underline;
+    }
+
+    li {
+      cursor: pointer;
+    }
+  }
+
+  .now-playing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 0.5em;
+
+    img {
+      border-radius: 15px;
+      width: 300px;
+      height: 300px;
+    }
+
+    .player-controls {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 70%;
+
+      button {
+        background-color: transparent;
+        border: none;
+
+        img {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+  }
+
+  .song-history {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-inline-start: 1em;
+    margin-top: auto;
+
+    h3 {
+      font-weight: var(--font-weight-bold);
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 15px;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.5em;
+
+      .now-playing-history {
+        display: flex;
+        flex-direction: row;
+        gap: 0.75em;
+
+        .time-active {
+          text-decoration: underline;
+        }
+
+        span {
+          width: 40px;
+          align-content: center;
+        }
+
+        div {
+          width: 165px;
+          padding-bottom: 0.5em;
+          border-bottom: 1px solid;
+          border-color: #8b8b8b;
+        }
+      }
+
+      .TCV {
+        display: none;
+      }
+    }
+
+    .full-list-link {
+      display: flex;
+      flex-direction: row;
+      padding-top: 1em;
+      width: 90%;
+
+      span {
+        margin-inline-start: auto;
+      }
+    }
+  }
+}
+
+.live-chat {
+  width: 66.6667%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 2rem 4rem 0 4rem;
+  overflow: hidden;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 75%;
+  word-break: break-word;
+}
+
+.message-wrapper.sent {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.message-wrapper.received {
+  align-self: flex-start;
+  text-align: left;
+}
+
+.message-bubble {
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-size: 1rem;
+  line-height: 1.4;
+  display: inline-block;
+  background-color: #eee;
+}
+
+.sent .message-bubble {
+  background-color: #007aff;
+  color: white;
+  border-bottom-right-radius: 0;
+}
+
+.received .message-bubble {
+  background-color: #ff2d8a;
+  color: white;
+  border-bottom-left-radius: 0;
+}
+
+.message-meta {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+.sender-name {
+  font-weight: bold;
+  display: block;
+}
+
+.logout-form {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+}
+
+.logout-form button {
+  background-color: transparent;
+  border: none;
+  color: #007aff;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.chat-input {
+  background: white;
+  border-top: 1px solid #ddd;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  border-radius: 999px;
+  padding: 0.25rem;
+  width: 100%;
+  max-width: 700px;
+  height: 52px;
+}
+
+.input-wrapper input[type="text"] {
+  flex: 1;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  outline: none;
+  background: transparent;
+}
+
+.input-wrapper button {
+  background-color: #007aff;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.live-chat-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.chat-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}

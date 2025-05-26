@@ -13,9 +13,11 @@ Hoe verantwoord je je ontwerp?
 Bronnen gebruiken? 
 
 Nog even wat details aanpassen omdat dat beter is???
-- UI principles van Joshuwa perter gebruiken
-- disney principes toepassen en benoemen
-- Easein Ease out
+- Artikel user delight 
+- UI principles van Joshua Porter gebruiken
+- Disney principes toepassen en benoemen
+- Easein Ease out Perceived performance
 - ...
+
 
 -->

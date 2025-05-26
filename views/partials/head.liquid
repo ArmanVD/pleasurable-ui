@@ -1,8 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="nl">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Luister naar jouw favoriete radiostation bij Mediahuis.">
+    <title>
+      Mediahuis{% if radiostation %}
+        | {{ radiostation }}{% endif %}
+    </title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon.webp">
+    <script src="/JavaScript/main.js" type="module"></script
     <link rel="stylesheet" href="/CSS/header.css">
     <link rel="stylesheet" href="/CSS/footer.css">
     <link rel="stylesheet" href="/CSS/stylesheet.css">
@@ -14,7 +24,6 @@
     <link rel="stylesheet" href="/CSS/playlist.css">
     <link rel="stylesheet" href="/CSS/radio-template.css">
     <link rel="stylesheet" href="/CSS/animated-link-kyan.css">
-    <title>Document</title>
 </head>
 <body>
-    
+ 

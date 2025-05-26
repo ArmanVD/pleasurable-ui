@@ -1,0 +1,220 @@
+{% render 'partials/head.liquid'
+  , page: 'livechat'
+  , radiostation: radiostation %}
+<body data-page="{{ page }}" data-station="{{ radiostation | downcase | replace: ' ', '-' | replace: '%', 'percent' }}">
+
+  <main>
+    <div class="live-chat-wrapper">
+      <article class="live-chat">
+        {% if username %}
+          <form
+            method="POST"
+            action="/logout"
+            class="logout-form">
+            <button type="submit">Log uit</button>
+          </form>
+
+          <div class="chat-scroll-area">
+            <section id="chat-messages" class="chat-messages">
+              {% if messages and messages.size > 0 %}
+                {% for msg in messages %}
+                  <div class="message-wrapper {% if msg.sender == username %}sent{% else %}received{% endif %}">
+                    <div class="message-bubble">
+                      {{ msg.message }}
+                    </div>
+                    <div class="message-meta">
+                      {% if msg.sender != username %}
+                        <span class="sender-name">{{ msg.sender }}</span>
+                      {% endif %}
+                      <time>{{ msg.date_created | date: "%a, %-d %b - %H:%M" }}</time>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <p>No messages yet.</p>
+              {% endif %}
+            </section>
+
+            <div
+              id="typing-indicator"
+              class="typing-indicator"
+              aria-live="polite"
+              style="display: none;">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <form
+            id="livechat-form"
+            class="chat-input"
+            method="POST"
+            action="/livechat">
+            <input
+              type="hidden"
+              name="sender"
+              value="{{ username }}">
+            <div class="input-wrapper">
+              <input
+                type="text"
+                id="message"
+                name="message"
+                placeholder="Type je bericht hier..."
+                required>
+              <button type="submit">Versturen</button>
+            </div>
+          </form>
+        {% else %}
+          <form method="POST" action="/login">
+            <label for="username">Enter your name to join the chat:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Your name"
+              required>
+            <button type="submit">Join</button>
+          </form>
+        {% endif %}
+      </article>
+      <aside class="right-sidebar-live-chat">
+        <article class="now-playing">
+          <img src="/assets/tory-lanez.jpeg" alt="Tory Lanez - Hurt From Mercury" />
+          <p class="style-small">
+            Arman Voogd
+          </p>
+          <h2 class="style2">
+            R&B Gems
+          </h2>
+          <p class="style-small">
+            Hurt From Mercury – Tory Lanez
+          </p>
+          <div class="player-controls">
+            <a href="#" class="style-label">
+              Kijk live
+            </a>
+            <button class="play-button"><img src="/assets/play-icon.svg" alt=""></button>
+            <a href="/livechat" class="style-label">
+              Live Chat
+            </a>
+          </div>
+        </article>
+        <article class="song-history">
+          <h3 class="style3">Eerder op Radio Veronica</h3>
+          <ul>
+            <li class="now-playing-history">
+              <span class="time-active style-label">Nu</span>
+              <img src="/assets/tory-lanez.jpeg" alt="Hurt From Mercury" />
+              <div>
+                <p class="style-label">Hurt From Mercury</p>
+                <p class="style-small">Tory Lanez</p>
+              </div>
+            </li>
+            <li class="now-playing-history">
+              <span class="time">16:49</span>
+              <img src="/assets/amy-winehouse.webp" alt="Back to Black" />
+              <div>
+                <p class="style-label">Back to Black</p>
+                <p class="style-small">Amy Winehouse</p>
+              </div>
+            </li>
+            <li class="now-playing-history TCV">
+              <span class="time">16:45</span>
+              <img src="/assets/tory-lanez.jpeg" alt="The Color Violet" />
+              <div>
+                <p class="style-label">The Color Violet</p>
+                <p class="style-small">Tory Lanez</p>
+              </div>
+            </li>
+          </ul>
+          <a href="#" class="full-list-link style-label">VOLLEDIGE LIJST
+            <span>→</span>
+          </a>
+        </article>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    setInterval(() => {
+      fetch('/livechat')
+        .then(response => response.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const newMessages = doc.querySelector('#chat-messages');
+          const chatSection = document.querySelector('#chat-messages');
+          chatSection.innerHTML = newMessages.innerHTML;
+        });
+    }, 1000);
+
+    window.addEventListener('load', () => {
+      const chatSection = document.querySelector('#chat-messages');
+      if (chatSection) {
+        chatSection.scrollTop = chatSection.scrollHeight;
+      }
+    });
+
+    const form = document.getElementById('livechat-form');
+    if (form) {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const data = new URLSearchParams(formData);
+
+        await fetch('/livechat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: data
+        });
+
+        form.message.value = '';
+      });
+
+      const messageInput = document.getElementById('message');
+      const typingIndicator = document.getElementById('typing-indicator');
+      let typingTimeout;
+
+      messageInput.addEventListener('input', () => {
+        clearTimeout(typingTimeout);
+
+        fetch('/typing', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sender: form.sender.value })
+        });
+
+        typingTimeout = setTimeout(() => {
+          fetch('/typing', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sender: form.sender.value, done: true })
+          });
+        }, 3000);
+      });
+
+      setInterval(() => {
+        fetch('/typing-status')
+          .then(res => res.json())
+          .then(data => {
+            if (data.typing.includes(form.sender.value)) {
+              data.typing = data.typing.filter(name => name !== form.sender.value);
+            }
+
+            if (data.typing.length > 0) {
+              typingIndicator.style.display = 'block';
+              typingIndicator.innerHTML = `${data.typing.join(", ")} ${data.typing.length > 1 ? 'are' : 'is'} typing...`;
+            } else {
+              typingIndicator.style.display = 'none';
+              typingIndicator.innerHTML = '';
+            }
+          });
+      }, 1000);
+    }
+  </script>
+
+</body>
