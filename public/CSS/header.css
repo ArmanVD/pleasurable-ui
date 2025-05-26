@@ -12,15 +12,24 @@
 
 .upper-header {
     display: flex;
-    justify-content: space-between;
-}
-
-.upper-header #switch {
-    margin-left: 80%;
+    justify-content: center;
 }
 
 .upper-header > img {
     width: 93px;
+
+    @media (min-width: 1136px) {
+        margin-left: 32px;
+    }
+}
+
+.upper-header label, .upper-header input   {
+
+    margin-left: 32px;
+
+    @media (min-width: 1136px) {
+        display: none;
+    }
 }
 
 
@@ -73,3 +82,87 @@
         }
     }
 }
+
+.footer-becomes-header {
+    display: none;
+
+    @media (min-width: 1136px) {
+        display: flex;
+        background: var(--radio-veronica);
+        padding-inline: 40px;
+        padding-block: 30px;
+        width: 100%;
+    }
+}
+
+.footer-becomes-header ul {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    width: 100%;
+}
+
+.footer-becomes-header nav {
+    width: 100%;
+}
+
+.footer-becomes-header a {
+    color: var(--bg-light);
+    font-family: var(--font-bold);
+    text-transform: uppercase;
+}
+
+.footer-becomes-header li:nth-of-type(4) {
+    margin-left: auto;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    width: 100px;
+    height: 25px;
+    z-index: 99;
+    cursor: pointer;
+    appearance: none;
+    margin: 0;
+}
+
+input[type="checkbox"]:focus + label {
+    outline: 2px solid var(--bg-light);
+}
+
+label {
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    background-color: var(--bg-light);
+    border-radius: 25px;
+    position: relative;
+    transition: .3s ease-in-out;
+}
+
+label::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--radio-veronica);
+    top: 50%;
+    left: 0;
+    translate: 10% -50%;
+}
+
+input[type="checkbox"]:checked + label::before {
+    content: "";
+    color: var(--pink);
+    font-size: 8px;
+    font-weight: bold;
+    background-color: var(--pink);
+    left: 100%;
+    translate: -110% -50%;
+    display: grid;
+    place-items: center;
+}
+
+
