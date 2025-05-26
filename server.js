@@ -38,6 +38,10 @@ app.set("view engine", "liquid");
 app.get("/:station", async (req, res) => {
   const stationSlug = req.params.station;
 
+  const likedShows = await fetch('https://fdnd-agency.directus.app/items/mh_accounts/7?fields=id,name,liked_shows.mh_show_id.*.*.*')
+  const likedShowsJSON = await likedShows.json()
+
+
   try {
     const response = await fetch("https://fdnd-agency.directus.app/items/mh_radiostations");
     const json = await response.json();
@@ -130,6 +134,7 @@ app.get("/:station", async (req, res) => {
       selected_day: {
         shows: showsWithTimes,
         formatted_date: formattedDate,
+        likes:likedShowsJSON.data,
       },
       days: allDays.map((day) => ({
         date: day.date,
@@ -148,7 +153,7 @@ app.get("/", async function (request, response) {
 });
 
 
-
+ 
 app.get("/veronica/likes", async function (request, response) {
   const likedShows = await fetch("https://fdnd-agency.directus.app/items/mh_accounts/7?fields=id,name,liked_shows.mh_show_id.*.*.*");
   const likedShowsJSON = await likedShows.json();
@@ -170,7 +175,7 @@ app.post('/veronica/like', async function (request, response) {
      }),
   })
     // console.log(testConsole)
-    response.redirect(303, '/veronica' )  
+    response.redirect(303, '/radio-veronica' )  
 })
 
 
