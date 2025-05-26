@@ -1,0 +1,141 @@
+.footer-becomes-header404 {
+    display: none;
+
+    @media (min-width: 1136px) {
+        display: flex;
+        background: var(--radio-veronica);
+        padding-inline: 40px;
+        padding-block: 30px;
+        width: 100%;
+    }
+}
+
+.footer-becomes-header404 ul {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    width: 100%;
+}
+
+.footer-becomes-header404 nav {
+    width: 100%;
+}
+
+.footer-becomes-header404 a {
+    color: var(--bg-light);
+    font-family: var(--font-bold);
+    text-transform: uppercase;
+}
+
+.footer-becomes-header404 li:last-of-type {
+    margin-left: auto;
+}
+
+
+
+.content404 {
+    height: 90vh;
+    background: var(--radio-veronica);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @media (min-width:1136px) {
+        background: var(--bg-light);
+    }
+}
+
+
+.content404 img:nth-of-type(1) {
+
+    @media (min-width: 1136px) {
+        display: none;
+    }
+}
+
+.blue404logo {
+    display: none;
+
+    @media (min-width: 1136px) {
+        display: flex !important;
+        justify-content: center;
+    }
+}
+
+.content404 h2 {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 16px;
+    padding-inline: 16px;
+
+    @media (min-width: 600px) {
+        font-size: var(--font-size-4);
+    }
+
+    @media (min-width: 1136px) {
+        color: var(--radio-veronica);
+    }
+}
+
+.content404 a {
+    display: flex;
+    justify-content: center;
+    background: var(--pink) ;
+    padding: 10px;
+    width: 80px;
+    border-radius: 25px;
+    border: 3px solid var(--bg-light);
+    font-family: var(--font-bold);
+    font-size: var(--font-size-normal);
+    color: white;
+    margin-top: 72px;
+    margin-bottom: 200px;
+
+    @media (min-width: 600px) {
+        width: 100px;
+        font-size: var(--font-size-4);
+    }
+
+    @media (min-width: 1136px) {
+        border: 3px solid var(--pink);
+    }
+}
+
+
+
+.mainfooter404 {
+    background-color: var(--bg-light);
+    position: sticky;
+    bottom: 0;
+
+    @media (min-width: 1136px) {
+        display: none;
+    }
+}
+
+.mainfooter404 ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    list-style: none;
+    gap: 5%;
+    padding-block: 16px;
+}
+
+
+.mainfooter404 a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    width: 21vw;
+    font-family: var(--font-bold);
+    font-size: var(--font-size-normal);
+    color: var(--radio-veronica);
+}
+
+.mainfooter404 img {
+    color: var(--radio-veronica);
+    width: 24px;
+}
