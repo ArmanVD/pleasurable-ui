@@ -17,6 +17,10 @@
     width: 100%;
 }
 
+.footer-becomes-header404 nav {
+    width: 100%;
+}
+
 .footer-becomes-header404 a {
     color: var(--bg-light);
     font-family: var(--font-bold);
