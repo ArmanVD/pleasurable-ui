@@ -32,7 +32,126 @@ app.set("view engine", "liquid");
 // Stel de map met Liquid templates in
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set("views", "./views");
-app.set("view engine", "liquid");
+
+app.get("/livechat", async (req, res) => {
+  try {
+    const response = await fetch("https://fdnd-agency.directus.app/items/mh_chats", {
+      headers: {},
+    });
+
+    const data = await response.json();
+    const messages = data.data;
+
+    try {
+      res.render("live-chat", {
+        page: "radio",
+        radiostation: "Live Chat",
+        messages,
+        username: req.session.username,
+      });
+    } catch (renderError) {
+      console.error("Error rendering live-chat:", renderError);
+      res.status(500).send("Template rendering failed");
+    }
+  } catch (error) {
+    console.error("Failed to fetch chat messages:", error);
+    res.status(500).send("Error fetching chat messages.");
+  }
+});
+
+app.get("/", async function (request, response) {
+  response.render("index.liquid");
+});
+
+app.get("/veronica/likes", async function (request, response) {
+  const likedShows = await fetch("https://fdnd-agency.directus.app/items/mh_accounts/7?fields=id,name,liked_shows.mh_show_id.*.*.*");
+  const likedShowsJSON = await likedShows.json();
+
+  response.render("veronica-likes.liquid", { algemeen: likedShowsJSON.data });
+});
+
+app.post("/veronica/like", async function (request, response) {
+  //console.log(request.body)
+  const testConsole = await fetch("https://fdnd-agency.directus.app/items/mh_accounts_shows", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+    body: JSON.stringify({
+      mh_accounts_id: 7,
+      mh_show_id: request.body.showid,
+    }),
+  });
+  // console.log(testConsole)
+  response.redirect(303, "/veronica");
+});
+
+function sanitizeInput(input) {
+  return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+app.post("/livechat", async (req, res) => {
+  const { sender, message } = req.body;
+  const cleanSender = sanitizeInput(sender);
+  const cleanMessage = sanitizeInput(message);
+
+  try {
+    await fetch("https://fdnd-agency.directus.app/items/mh_chats", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        sender: cleanSender,
+        message: cleanMessage,
+        chathost: 2,
+        status: "draft",
+      }),
+    });
+
+    res.redirect("/livechat");
+  } catch (error) {
+    console.error("Failed to post chat message:", error);
+    res.status(500).send("Error posting chat message.");
+  }
+});
+
+app.post("/login", (req, res) => {
+  const { username } = req.body;
+  req.session.username = sanitizeInput(username);
+  res.redirect("/livechat");
+});
+
+app.post("/logout", (req, res) => {
+  req.session.destroy(() => {
+    res.redirect("/livechat");
+  });
+});
+
+// Typing indicator memory object and routes
+const typingUsers = {};
+
+app.post("/typing", (req, res) => {
+  const { sender, done } = req.body;
+
+  if (!sender) return res.sendStatus(400);
+
+  if (done) {
+    delete typingUsers[sender];
+  } else {
+    typingUsers[sender] = Date.now();
+  }
+
+  res.sendStatus(200);
+});
+
+app.get("/typing-status", (req, res) => {
+  const activeTypers = Object.entries(typingUsers)
+    .filter(([_, timestamp]) => Date.now() - timestamp < 3000)
+    .map(([sender]) => sender);
+
+  res.json({ typing: activeTypers });
+});
 
 app.get("/:station", async (req, res) => {
   const stationSlug = req.params.station;
@@ -60,7 +179,7 @@ app.get("/:station", async (req, res) => {
     const selectedStation = stationsWithSlugs.find((station) => station.slug === stationSlug);
 
     if (!selectedStation) {
-      return res.status(404).send("404 - Not Found");
+      return res.status(404).render("404page.liquid");
     }
 
     const daysRes = await fetch("https://fdnd-agency.directus.app/items/mh_day?fields=*,shows.mh_shows_id.*.*");
@@ -144,121 +263,6 @@ app.get("/:station", async (req, res) => {
     console.error("Failed to fetch stations or shows:", error);
     res.status(500).send("Server error");
   }
-});
-
-app.get("/", async function (request, response) {
-  response.render("index.liquid");
-});
-
-app.get("/veronica/likes", async function (request, response) {
-  const likedShows = await fetch("https://fdnd-agency.directus.app/items/mh_accounts/7?fields=id,name,liked_shows.mh_show_id.*.*.*");
-  const likedShowsJSON = await likedShows.json();
-
-  response.render("veronica-likes.liquid", { algemeen: likedShowsJSON.data });
-});
-
-app.post("/veronica/like", async function (request, response) {
-  //console.log(request.body)
-  const testConsole = await fetch("https://fdnd-agency.directus.app/items/mh_accounts_shows", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json;charset=UTF-8",
-    },
-    body: JSON.stringify({
-      mh_accounts_id: 7,
-      mh_show_id: request.body.showid,
-    }),
-  });
-  // console.log(testConsole)
-  response.redirect(303, "/veronica");
-});
-
-function sanitizeInput(input) {
-  return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-
-app.get("/livechat", async (req, res) => {
-  try {
-    const response = await fetch("https://fdnd-agency.directus.app/items/mh_chats", {
-      headers: {},
-    });
-
-    const data = await response.json();
-    const messages = data.data;
-
-    res.render("live-chat", {
-      page: "radio",
-      radiostation: "Live Chat",
-      messages,
-      username: req.session.username,
-    });
-  } catch (error) {
-    console.error("Failed to fetch chat messages:", error);
-    res.status(500).send("Error fetching chat messages.");
-  }
-});
-
-app.post("/livechat", async (req, res) => {
-  const { sender, message } = req.body;
-  const cleanSender = sanitizeInput(sender);
-  const cleanMessage = sanitizeInput(message);
-
-  try {
-    await fetch("https://fdnd-agency.directus.app/items/mh_chats", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        sender: cleanSender,
-        message: cleanMessage,
-        chathost: 2,
-        status: "draft",
-      }),
-    });
-
-    res.redirect("/livechat");
-  } catch (error) {
-    console.error("Failed to post chat message:", error);
-    res.status(500).send("Error posting chat message.");
-  }
-});
-
-app.post("/login", (req, res) => {
-  const { username } = req.body;
-  req.session.username = sanitizeInput(username);
-  res.redirect("/livechat");
-});
-
-app.post("/logout", (req, res) => {
-  req.session.destroy(() => {
-    res.redirect("/livechat");
-  });
-});
-
-// Typing indicator memory object and routes
-const typingUsers = {};
-
-app.post("/typing", (req, res) => {
-  const { sender, done } = req.body;
-
-  if (!sender) return res.sendStatus(400);
-
-  if (done) {
-    delete typingUsers[sender];
-  } else {
-    typingUsers[sender] = Date.now();
-  }
-
-  res.sendStatus(200);
-});
-
-app.get("/typing-status", (req, res) => {
-  const activeTypers = Object.entries(typingUsers)
-    .filter(([_, timestamp]) => Date.now() - timestamp < 3000)
-    .map(([sender]) => sender);
-
-  res.json({ typing: activeTypers });
 });
 
 //error page
