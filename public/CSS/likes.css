@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     row-gap: 20px;
     overflow: scroll;
-    height: 65vh;
+    height: 67vh;
     background-color: var(--veronica-color-white);
     padding-top: 8px;
 
@@ -18,7 +18,7 @@ body {
         padding-top: 16px;
     }
 
-    @media (min-width: 1080px) {
+    @media (min-width: 1136px) {
         height: unset;
         padding-top: 32px;
     }

@@ -3,6 +3,7 @@
     background-color: var(--bg-light);
     position: sticky;
     bottom: 0;
+    padding-block: 10px;
 
     @media (min-width:1136px) {
         display: none;
@@ -38,7 +39,8 @@
     display: none;
 
     @media (min-width:1136px) {
-        display: block;
+        display: flex;
+        justify-content: space-between;
         background: #011564;
         height: 380px;
         padding-inline: 32px;
@@ -52,7 +54,7 @@
     justify-content: flex-start;
 }
 
-.bigscreenfooter > img {
+.footercontent > img {
     width: 69px;
     margin-bottom: 24px;
 }
@@ -79,4 +81,25 @@
 .radiostations > a, .footercontent > a {
     color: var(--bg-light);
     text-decoration: none;
+}
+
+.footerlinks {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.footerlinks nav {
+    width: 200px;
+}
+
+.footerlinks ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+
+.footerlinks a {
+    font-family: var(--font-regular);
+    color: var(--bg-light);
 }

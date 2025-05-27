@@ -48,6 +48,7 @@
 html {
   background-color: light-dark(var(--bg-light), var(--bg-dark));
   color: light-dark(var(--text-light), var(--text-dark));
+  overflow-x: hidden;
 }
 
 .hoofd-nav a {
