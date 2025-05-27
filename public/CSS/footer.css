@@ -78,6 +78,11 @@
     gap: 16px;
 }
 
+.footermedia a:hover {
+    scale: 1.5;
+    transition: 0.2s ease;
+}
+
 .radiostations > a, .footercontent > a {
     color: var(--bg-light);
     text-decoration: none;
@@ -100,17 +105,14 @@
 }
 
 .footerlinks a {
+    position: relative;
+    display: block;
     font-family: var(--font-regular);
     color: var(--bg-light);
     max-width: fit-content;
 }
 
-footer a {
-    position: relative;
-    display: block;
-}
-  
-footer a::after {
+.footerlinks a::after {
     content: '';
     position: absolute;
     background: var(--bg-light);
@@ -121,12 +123,12 @@ footer a::after {
     transition: width 0.3s ease, color 0.3s ease;
 }
   
-footer a:hover::after {
+.footerlinks a:hover::after {
     width: 100%;
     background: var(--bg-light);
 }
   
-footer a:hover {
+.footerlinks a:hover {
     color: var(--bg-light);
     transition: color 0.3s ease;
 }
