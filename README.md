@@ -10,7 +10,15 @@
   
 ## Beschrijving
 
-Mediahuis wou graag een radiogids voor verschillende radiozenders ( Veronica, Slam en 100%NL waarop je kon zien welke shows die dag er zijn met informatie over de show, door wie de show gehost word en de tijden van de show. Wij hebben dit gerealiseert voor hun en wij hebben daarbij een paar extra zelfbedachte features aangebracht, in deze presentatie / readme leer je daar meer over!
+Mediahuis wou graag een radiogids voor verschillende radiozenders ( Veronica, Slam en 100%NL waarop je kon zien welke shows die dag er zijn met informatie over de show, door wie de show gehost word en de tijden van de show. Wij hebben dit gerealiseert voor hun en wij hebben daarbij een paar extra zelfbedachte features aangebracht en een paar leuke hover animaties, in deze presentatie / readme leer je daar meer over!
+
+### Animated link hover
+
+Dit hebben wij gemaakt omdat wij denken dat dit de bezoeker van de website duidelijkere functionaliteit geeft over dat dit linkjes zijn, dit omdat er een kleurverandering plaatsvind en er een lijn onder onstaat.
+
+https://github.com/user-attachments/assets/e24db71f-8217-4d4d-8c9a-6cd4c9baaa40
+
+
 
 ## Programma Pagina 
 ### ontwerpkeuzes
