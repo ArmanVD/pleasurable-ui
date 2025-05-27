@@ -67,6 +67,7 @@ app.get("/veronica/likes", async function (request, response) {
   const likedShows = await fetch("https://fdnd-agency.directus.app/items/mh_accounts/7?fields=id,name,liked_shows.mh_show_id.*.*.*");
   const likedShowsJSON = await likedShows.json();
 
+
   response.render("veronica-likes.liquid", { algemeen: likedShowsJSON.data });
 });
 
@@ -85,6 +86,27 @@ app.post("/veronica/like", async function (request, response) {
   // console.log(testConsole)
   response.redirect(303, "/veronica");
 });
+
+
+app.post('/veronica/likes', async function (request, response) {
+
+  const toDelete = request.body.showid
+
+  // Haal uit mh_accounts_shows het ID op met account id 7 en show id ...
+  const likedShows = await fetch('https://fdnd-agency.directus.app/items/mh_accounts_shows?filter={"mh_accounts_id":7,"mh_show_id":' + toDelete + '}')
+  const likedShowsJSON = await likedShows.json()
+
+  const deleteID = likedShowsJSON.data[0].id 
+  
+  const deleteLike = await fetch('https://fdnd-agency.directus.app/items/mh_accounts_shows/' + deleteID, {
+    method: 'DELETE',         
+     headers: {
+       'Content-Type': 'application/json;charset=UTF-8'
+    },
+})
+  response.redirect(303, '/veronica/likes' )  // hierdoor word je teruggestuurd naar de likes page nadat je een like hebt verwijderd
+})
+
 
 function sanitizeInput(input) {
   return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");

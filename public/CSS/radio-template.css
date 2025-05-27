@@ -326,3 +326,9 @@ main {
     width: 100%;
   }
 }
+
+.like, form {
+  background: none;
+  border: none;
+  color: var(--bg-light);
+}

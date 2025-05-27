@@ -53,13 +53,13 @@ html {
 .hoofd-nav a {
   position: relative;
   display: block;
-  color: #0091ff;
+  color: var(--radio-veronica);
 }
 
 .hoofd-nav a::after {
   content: '';
   position: absolute;
-  background: #0091ff;
+  background: var(--radio-veronica);
   height: 2px;
   bottom: 0;
   left: 0;
@@ -69,10 +69,10 @@ html {
 
 .hoofd-nav a:hover::after {
   width: 100%;
-  background: #fe0170;
+  background: var(--pink);
 }
 
 .hoofd-nav a:hover {
-  color: #fe0170;
+  color: var(--pink);
   transition: color 0.3s ease;
 }

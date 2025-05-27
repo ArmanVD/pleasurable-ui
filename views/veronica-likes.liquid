@@ -12,15 +12,15 @@
 
 {% for data in algemeen.liked_shows %}
     <article class="programma">
-        <div>
+        <div class="informatie">
             <h2>{{ data.mh_show_id.name }}</h2>
-            <p class="informatie-show">{{ data.mh_show_id.body}}</p>
+            <p>{{ data.mh_show_id.body}}</p>
         </div>
 
         {% for person in data.mh_show_id.users %}
-            <div>
-                <img src="/assets/User.svg" alt="gebruiker">
-                <p class="naam-artiest">{{ person.mh_users_id.full_name }}</p>
+            <div class="informatie-artiest">
+                <img src="/assets/User-blue.svg" alt="gebruiker">
+                <p>{{ person.mh_users_id.full_name }}</p>
             </div>
             <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest"> 
         {% endfor %}   

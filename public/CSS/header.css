@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--radio-veronica);
-    padding-block: 30px;
+    height: 120px;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -45,7 +45,7 @@
             a {
                 text-decoration: none;
                 font-family: var(--font-bold);
-                color: var(--bg-white);
+                color: var(--bg-light);
             }
         }
     }
@@ -56,10 +56,10 @@
 .hoofd-nav {
     display: flex;
     justify-content: center;
-    background-color: var(--bg-white);
+    background-color: var(--bg-light);
     padding-block: 16px;
     position: sticky;
-    top: 92px;
+    top: 120px;
     z-index: 9;
     overflow-x: scroll;
 
@@ -164,4 +164,30 @@ input[type="checkbox"]:checked + label::before {
     place-items: center;
 }
 
+.hoofd-nav a {
+    position: relative;
+    display: block;
+    color: var(--radio-veronica);
+}
+  
+.hoofd-nav a::after {
+    content: '';
+    position: absolute;
+    background: var(--radio-veronica);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    transition: width 0.3s ease, color 0.3s ease;
+}
+  
+.hoofd-nav a:hover::after {
+    width: 100%;
+    background: var(--pink);
+}
+  
+.hoofd-nav a:hover {
+    color: var(--pink);
+    transition: color 0.3s ease;
+}
 
