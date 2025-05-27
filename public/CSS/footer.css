@@ -1,9 +1,9 @@
 
-
 .mainfooter {
     background-color: var(--bg-light);
     position: sticky;
     bottom: 0;
+    padding-block: 10px;
 
     @media (min-width:1136px) {
         display: none;
@@ -37,23 +37,98 @@
 
 .bigscreenfooter {
     display: none;
+
+    @media (min-width:1136px) {
+        display: flex;
+        justify-content: space-between;
+        background: #011564;
+        height: 380px;
+        padding-inline: 32px;
+        padding-block: 48px;
+    }
 }
 
-    .media, .radiostations {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-    }
+.footercontent, .radiostations {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
-    .bigscreenfooter > img {
-        width: 69px;
-    }
+.footercontent > img {
+    width: 69px;
+    margin-bottom: 24px;
+}
 
-    .media > h2, .media > p {
-        color: var(--bg-white);
-    }
+.footercontent > h2 {
+    font-family: var(--font-black);
+    font-size: var(--font-size-1);
+    text-transform: capitalize;
+    color: var(--bg-light);
+    max-width: 200px;
+    margin-bottom: 24px;
+}
 
-    .radiostations > a, .media > a {
-        color: var(--bg-white);
-        text-decoration: none;
-    }
+.footercontent > p {
+    color: var(--bg-light);
+    margin-bottom: 12px;
+}
+
+.footermedia {
+    display: flex;
+    gap: 16px;
+}
+
+.footermedia a:hover {
+    scale: 1.5;
+    transition: 0.2s ease;
+}
+
+.radiostations > a, .footercontent > a {
+    color: var(--bg-light);
+    text-decoration: none;
+}
+
+.footerlinks {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.footerlinks nav {
+    width: 200px;
+}
+
+.footerlinks ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+
+.footerlinks a {
+    position: relative;
+    display: block;
+    font-family: var(--font-regular);
+    color: var(--bg-light);
+    max-width: fit-content;
+}
+
+.footerlinks a::after {
+    content: '';
+    position: absolute;
+    background: var(--bg-light);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    transition: width 0.3s ease, color 0.3s ease;
+}
+  
+.footerlinks a:hover::after {
+    width: 100%;
+    background: var(--bg-light);
+}
+  
+.footerlinks a:hover {
+    color: var(--bg-light);
+    transition: color 0.3s ease;
+}
