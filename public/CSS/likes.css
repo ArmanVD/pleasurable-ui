@@ -30,7 +30,7 @@ body {
     grid-template-columns: 1fr 3fr 0.5fr 0.5fr;
     /* grid-template-rows: 2fr 0.2fr 0.2fr; */
     background-color: var(--bg-light);
-    box-shadow: 0px 0px 3px 3px var(--radio-veronica);
+    box-shadow: 0px 0px 3px 3px var(--bg-dark);
     width: 295px;
     padding: 16px 16px 12px 12px;
     border-radius: 8px;
@@ -58,7 +58,7 @@ article:nth-of-type(1) {
 .informatie h2 {
     font-family: var(--font-black);
     font-size: var(--font-size-h2);
-    color: var(--radio-veronica);
+    color: var(--text-dark);
     margin-bottom: 4px;
 }
 
@@ -66,7 +66,7 @@ article:nth-of-type(1) {
     grid-column: 1/4;
     font-family: var(--font-regular);
     font-size: var(--font-size-p-main);
-    color: var(--radio-veronica);
+    color: var(--text-dark);
     max-width: 178px;
 
     @media (min-width: 600px) {
@@ -97,7 +97,7 @@ article:nth-of-type(1) {
 }
 
 .informatie-artiest p {
-    color: var(--radio-veronica);
+    color: var(--text-dark);
 }
 
 .persoon-radio-overlay {
