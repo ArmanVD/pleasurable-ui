@@ -1,9 +1,12 @@
 
 .mainfooter {
+    display: flex;
+    justify-content: center;
     background-color: var(--bg-light);
-    position: sticky;
+    position: fixed;
     bottom: 0;
     padding-block: 10px;
+    width: 100%;
 
     @media (min-width:1136px) {
         display: none;

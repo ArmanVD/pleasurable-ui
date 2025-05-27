@@ -16,10 +16,10 @@ body {
 
     @media (min-width: 600px) {
         padding-top: 16px;
+        height: unset;
     }
 
     @media (min-width: 1136px) {
-        height: unset;
         padding-top: 32px;
     }
     
