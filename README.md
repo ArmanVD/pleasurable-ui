@@ -1,18 +1,26 @@
 # Mediahuis
-# Inhoudsopgave
-# Beschrijving
+## Inhoudsopgave
+* Beschrijving
+* Programma
+* Likes
+* Livechat
+* 404
+* Installatie
+
+  
+## Beschrijving
 Kyan
-# Programma Pagina 
-ontwerpkeuzes
+## Programma Pagina 
+### ontwerpkeuzes
 Arman
-# Likes Pagina
-ontwerpkeuzes
+## Likes Pagina
+### ontwerpkeuzes
 Kyan
-# Livechat Pagina
-ontwerpkeuzes
+## Livechat Pagina
+### ontwerpkeuzes
 Arman
-# 404 Pagina 
-ontwerpkeuzes
+## 404 Pagina 
+### ontwerpkeuzes
 Kyan
-# Installatie
+## Installatie
 Arman
