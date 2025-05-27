@@ -143,7 +143,7 @@
                     
                     {% assign is_liked = false %}
                     {% for like in likes.liked_shows %}
-                        {% if like.mh_show_id.id == data.show.id %}
+                        {% if like.mh_show_id.id == show.show.id %}
                             {% assign is_liked = true %}
                         {% endif %}
                     {% endfor %}
@@ -213,7 +213,6 @@
     </aside>
   </main>
   {% assign formatted_date = selected_day.formatted_date | default: "Selecteer een dag" %}
-  
   {% render 'partials/foot.liquid' %}
 </body>
 
