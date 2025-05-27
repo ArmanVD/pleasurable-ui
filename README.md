@@ -1,36 +1,28 @@
-# Pleasurable User Interface
-
-Ontwerp en maak met een team voor een opdrachtgever een interface waar gebruikers blij van worden.
-
-De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/pleasurable-ui/blob/main/docs/INSTRUCTIONS.md)
-
-
-
+# Mediahuis
 ## Inhoudsopgave
+* Beschrijving
+* Programma
+* Likes
+* Livechat
+* 404
+* Installatie
 
-  * [Beschrijving](#beschrijving)
-  * [Gebruik](#gebruik)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
-
+  
 ## Beschrijving
-<!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
 
-## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+Mediahuis wou graag een radiogids voor verschillende radiozenders ( Veronica, Slam en 100%NL waarop je kon zien welke shows die dag er zijn met informatie over de show, door wie de show gehost word en de tijden van de show. Wij hebben dit gerealiseert voor hun en wij hebben daarbij een paar extra zelfbedachte features aangebracht, in deze presentatie / readme leer je daar meer over!
 
-## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
-
+## Programma Pagina 
+### ontwerpkeuzes
+Arman
+## Likes Pagina
+### ontwerpkeuzes
+Kyan
+## Livechat Pagina
+### ontwerpkeuzes
+Arman
+## 404 Pagina 
+### ontwerpkeuzes
+Kyan
 ## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
-
-## Bronnen
-
-## Licentie
-
-This project is licensed under the terms of the [MIT license](./LICENSE).
+Arman
