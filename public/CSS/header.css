@@ -71,6 +71,8 @@
         gap: 32px;
         margin-left: 20px;
         list-style: none;
+        padding-left: 32px;
+        padding-right: 16px;
 
         a {
             font-family: var(--font-black);
