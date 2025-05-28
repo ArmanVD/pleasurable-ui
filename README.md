@@ -21,8 +21,19 @@ https://github.com/user-attachments/assets/e24db71f-8217-4d4d-8c9a-6cd4c9baaa40
 
 
 ## Programma Pagina 
-### ontwerpkeuzes
-Arman
+
+De programma pagina is grotendeels van het aangeleverde design overgenomen, met een paar kleine aanpassingen vanuit onze kant. Dit hebben wij gedaan om het design wat rustiger en overzichtelijker te maken voor de eindgebruiker. Je ziet duidelijk welke show nu bezig is, aangezien deze blauw is in de kleur van Radio-Veronica. Ook kan er tussen dagen geswitcht worden om het programma van een andere dag te zien. We hebben er op gelet dat de programma pagina in grotendeels dezelfde stijl gemaakt is als de andere pagina's, dit zorgt voor meer visuele hiërarchie, wat als fijn ervaren wordt door de eindgebruiker.
+
+### Iphone 12 Pro
+<img width="409" alt="image" src="https://github.com/user-attachments/assets/81e391ed-7255-4f53-93e0-e25d3b39013a" />
+
+### Ipad Air 
+
+<img width="589" alt="image" src="https://github.com/user-attachments/assets/8b0da473-463d-4636-94e6-86a0f696c33a" />
+
+### NestHub Max
+
+<img width="976" alt="image" src="https://github.com/user-attachments/assets/76ed0160-49f8-4c23-a220-8d98b07ce38e" />
 
 ## Likes Pagina
 
@@ -43,12 +54,23 @@ De Likespagina is een pagina die wij zelf bedacht hebben! In de programma pagina
 Zoals u ziet werkt de website op elk soort scherm correct!
 
 ## Livechat Pagina
-### ontwerpkeuzes
-Arman
+De LiveChat pagina is een extra feature die wij bedacht hebben voor op de website! Op deze manier kunnen gebruikers met elkaar communiceren over van alles en nog wat! Ze kunnen praten over Shows, DJ's, Muziek, etc. De styling hebben wij gedaan met de roze kleur die aangeleverd was en de blauwe kleur van radio veronica, om zo in de huidige styling te blijven. De gebruiker moet eerst inloggen, dit gebeurd eenvoudig door het invoeren van een gebruikersnaam. Het systeem checkt of er dan eerder berichten zijn gestuurd door deze gebruikersnaam, en zorgt er dan voor dat de gebruiker zijn/haar eigen berichten in het blauw ziet, en die van andere in het roze.
+
+### Iphone 12 Pro
+
+<img width="410" alt="image" src="https://github.com/user-attachments/assets/532121b6-669b-42e2-a189-b189da004e11" />
+
+### Ipad Air
+
+<img width="597" alt="image" src="https://github.com/user-attachments/assets/0969cb20-93ab-446f-bc6e-47a1b308fd27" />
+
+### NestHub MAx
+
+<img width="982" alt="image" src="https://github.com/user-attachments/assets/e391efc1-19ac-40bf-b7ac-28f3a4aeb730" />
 
 ## 404 Pagina 
 ### ontwerpkeuzes
-De likespagina is een pagina die wij ook zelf bedacht hebben om nog toe te voegen, dit leek ons handig voor als eindgebruikers op links klikken die nog niet werken / zijn verlopen. Wij hebben hier er voor gezorgd dat je makkelijk kan terugkeren naar de home of een gewenst radio zender. Wij hebben dit in de huisstijl van Veronica gehouden omdat dit ook de "homepage" is van de website daarom leek dit ons een gepast idee. Ook hebben wij dezelfde verschillende groottes gebruikt zodat het overeen komt met de homepage styling, hier hebben we alleen op groot scherm de footer weggelaten omdat je wilt dat je in deze pagina snel terugkan naar een gewenste pagina en daarvoor vonden wij een footer op groot sherm ongeschikt
+De 404 pagina is een pagina die wij ook zelf bedacht hebben om nog toe te voegen, dit leek ons handig voor als eindgebruikers op links klikken die nog niet werken / zijn verlopen. Wij hebben hier er voor gezorgd dat je makkelijk kan terugkeren naar de home of een gewenst radio zender. Wij hebben dit in de huisstijl van Veronica gehouden omdat dit ook de "homepage" is van de website daarom leek dit ons een gepast idee. Ook hebben wij dezelfde verschillende groottes gebruikt zodat het overeen komt met de homepage styling, hier hebben we alleen op groot scherm de footer weggelaten omdat je wilt dat je in deze pagina snel terugkan naar een gewenste pagina en daarvoor vonden wij een footer op groot sherm ongeschikt
 
 ### Iphone 12 pro
 
@@ -65,4 +87,11 @@ De likespagina is een pagina die wij ook zelf bedacht hebben om nog toe te voege
 
 
 ## Installatie
-Arman
+Clone de repo lokaal, in de terminal van je code editor moeten de volgende commands uitgevoerd worden:
+
+* npm install
+* npm install node-fetch express-session
+* npm start
+
+Vervolgens kan er via de localhost een live sessie gestart worden.
+
