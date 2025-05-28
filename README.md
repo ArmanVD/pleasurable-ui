@@ -87,4 +87,11 @@ De 404 pagina is een pagina die wij ook zelf bedacht hebben om nog toe te voegen
 
 
 ## Installatie
-Arman
+Clone de repo lokaal, in de terminal van je code editor moeten de volgende commands uitgevoerd worden:
+
+* npm install
+* npm install node-fetch express-session
+* npm start
+
+Vervolgens kan er via de localhost een live sessie gestart worden.
+
