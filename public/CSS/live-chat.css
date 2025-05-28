@@ -8,7 +8,7 @@
 .right-sidebar-live-chat {
   width: 33.3333%;
   height: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem;
@@ -128,12 +128,12 @@
 }
 
 .live-chat {
-  width: 66.6667%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 2rem 4rem 0 4rem;
   overflow: hidden;
-  background: var(--bg-color)
+  background: var(--bg-color);
 }
 
 .chat-messages {
@@ -262,4 +262,14 @@
   padding-bottom: 1rem;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .right-sidebar-live-chat {
+    display: flex;
+  }
+
+  .live-chat {
+    width: 66.6667%;
+  }
 }
