@@ -48,7 +48,21 @@ Arman
 
 ## 404 Pagina 
 ### ontwerpkeuzes
-De likespagina is een pagina die wij ook zelf bedacht hebben om nog toe te voegen, dit leek ons handig voor als eindgebruikers op links klikken die nog niet werken / zijn verlopen. Wij hebben hier er voor gezorgd dat je makkelijk kan terugkeren naar de home of een gewenst radio zender. Wij hebben dit in de huisstijl van Veronica gehouden omdat dit ook de "homepage" is van de website daarom leek dit ons een gepast idee. 
+De likespagina is een pagina die wij ook zelf bedacht hebben om nog toe te voegen, dit leek ons handig voor als eindgebruikers op links klikken die nog niet werken / zijn verlopen. Wij hebben hier er voor gezorgd dat je makkelijk kan terugkeren naar de home of een gewenst radio zender. Wij hebben dit in de huisstijl van Veronica gehouden omdat dit ook de "homepage" is van de website daarom leek dit ons een gepast idee. Ook hebben wij dezelfde verschillende groottes gebruikt zodat het overeen komt met de homepage styling, hier hebben we alleen op groot scherm de footer weggelaten omdat je wilt dat je in deze pagina snel terugkan naar een gewenste pagina en daarvoor vonden wij een footer op groot sherm ongeschikt
+
+### Iphone 12 pro
+
+<img width="353" alt="Screenshot 2025-05-28 at 10 00 49" src="https://github.com/user-attachments/assets/a5c95881-058b-4a63-a07c-25b553d24ad3" />
+
+### Ipad Air
+
+<img width="529" alt="Screenshot 2025-05-28 at 10 04 07" src="https://github.com/user-attachments/assets/c894ca79-0427-4aaf-8718-890c18a8e030" />
+
+
+### Nesthub Max
+
+<img width="1213" alt="Screenshot 2025-05-28 at 10 04 31" src="https://github.com/user-attachments/assets/bcb4f026-ad91-4149-aa5f-076fc7361381" />
+
 
 ## Installatie
 Arman
