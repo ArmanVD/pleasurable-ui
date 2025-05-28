@@ -191,6 +191,7 @@ body {
 
       li {
         width: 50px;
+        color: var(--text-color);
 
         button {
           display: flex;
@@ -198,6 +199,10 @@ body {
           background-color: transparent;
           border: none;
           width: 100%;
+
+          span {
+            color: var(--text-color);
+          }
         }
 
         &.active {
