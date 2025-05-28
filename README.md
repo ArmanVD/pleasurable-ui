@@ -21,8 +21,19 @@ https://github.com/user-attachments/assets/e24db71f-8217-4d4d-8c9a-6cd4c9baaa40
 
 
 ## Programma Pagina 
-### ontwerpkeuzes
-Arman
+
+De programma pagina is grotendeels van het aangeleverde design overgenomen, met een paar kleine aanpassingen vanuit onze kant. Dit hebben wij gedaan om het design wat rustiger en overzichtelijker te maken voor de eindgebruiker. Je ziet duidelijk welke show nu bezig is, aangezien deze blauw is in de kleur van Radio-Veronica. Ook kan er tussen dagen geswitcht worden om het programma van een andere dag te zien. We hebben er op gelet dat de programma pagina in grotendeels dezelfde stijl gemaakt is als de andere pagina's, dit zorgt voor meer visuele hiërarchie, wat als fijn ervaren wordt door de eindgebruiker.
+
+### Iphone 12 Pro
+<img width="409" alt="image" src="https://github.com/user-attachments/assets/81e391ed-7255-4f53-93e0-e25d3b39013a" />
+
+### Ipad Air 
+
+<img width="589" alt="image" src="https://github.com/user-attachments/assets/8b0da473-463d-4636-94e6-86a0f696c33a" />
+
+### NestHub Max
+
+<img width="976" alt="image" src="https://github.com/user-attachments/assets/76ed0160-49f8-4c23-a220-8d98b07ce38e" />
 
 ## Likes Pagina
 
@@ -48,7 +59,7 @@ Arman
 
 ## 404 Pagina 
 ### ontwerpkeuzes
-De likespagina is een pagina die wij ook zelf bedacht hebben om nog toe te voegen, dit leek ons handig voor als eindgebruikers op links klikken die nog niet werken / zijn verlopen. Wij hebben hier er voor gezorgd dat je makkelijk kan terugkeren naar de home of een gewenst radio zender. Wij hebben dit in de huisstijl van Veronica gehouden omdat dit ook de "homepage" is van de website daarom leek dit ons een gepast idee. Ook hebben wij dezelfde verschillende groottes gebruikt zodat het overeen komt met de homepage styling, hier hebben we alleen op groot scherm de footer weggelaten omdat je wilt dat je in deze pagina snel terugkan naar een gewenste pagina en daarvoor vonden wij een footer op groot sherm ongeschikt
+De 404 pagina is een pagina die wij ook zelf bedacht hebben om nog toe te voegen, dit leek ons handig voor als eindgebruikers op links klikken die nog niet werken / zijn verlopen. Wij hebben hier er voor gezorgd dat je makkelijk kan terugkeren naar de home of een gewenst radio zender. Wij hebben dit in de huisstijl van Veronica gehouden omdat dit ook de "homepage" is van de website daarom leek dit ons een gepast idee. Ook hebben wij dezelfde verschillende groottes gebruikt zodat het overeen komt met de homepage styling, hier hebben we alleen op groot scherm de footer weggelaten omdat je wilt dat je in deze pagina snel terugkan naar een gewenste pagina en daarvoor vonden wij een footer op groot sherm ongeschikt
 
 ### Iphone 12 pro
 
