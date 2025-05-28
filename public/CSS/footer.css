@@ -1,7 +1,7 @@
 .mainfooter {
   display: flex;
   justify-content: center;
-  background-color: var(--bg-light);
+  background-color: var(--bg-color);
   position: fixed;
   bottom: 0;
   padding-block: 10px;
