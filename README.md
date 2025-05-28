@@ -54,8 +54,19 @@ De Likespagina is een pagina die wij zelf bedacht hebben! In de programma pagina
 Zoals u ziet werkt de website op elk soort scherm correct!
 
 ## Livechat Pagina
-### ontwerpkeuzes
-Arman
+De LiveChat pagina is een extra feature die wij bedacht hebben voor op de website! Op deze manier kunnen gebruikers met elkaar communiceren over van alles en nog wat! Ze kunnen praten over Shows, DJ's, Muziek, etc. De styling hebben wij gedaan met de roze kleur die aangeleverd was en de blauwe kleur van radio veronica, om zo in de huidige styling te blijven. De gebruiker moet eerst inloggen, dit gebeurd eenvoudig door het invoeren van een gebruikersnaam. Het systeem checkt of er dan eerder berichten zijn gestuurd door deze gebruikersnaam, en zorgt er dan voor dat de gebruiker zijn/haar eigen berichten in het blauw ziet, en die van andere in het roze.
+
+### Iphone 12 Pro
+
+<img width="410" alt="image" src="https://github.com/user-attachments/assets/532121b6-669b-42e2-a189-b189da004e11" />
+
+### Ipad Air
+
+<img width="597" alt="image" src="https://github.com/user-attachments/assets/0969cb20-93ab-446f-bc6e-47a1b308fd27" />
+
+### NestHub MAx
+
+<img width="982" alt="image" src="https://github.com/user-attachments/assets/e391efc1-19ac-40bf-b7ac-28f3a4aeb730" />
 
 ## 404 Pagina 
 ### ontwerpkeuzes
