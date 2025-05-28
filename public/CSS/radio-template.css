@@ -2,11 +2,12 @@ body {
   background-color: #f0f0f0;
 }
 
-main {
+.radio-page {
   display: flex;
   flex-direction: column;
   gap: 2em;
   padding: 1em;
+  background-color: light-dark(var(--bg-light), var(--bg-dark));
 }
 
 .left-sidebar {
@@ -14,6 +15,7 @@ main {
   flex-direction: column;
   gap: 1em;
   background-color: #0091ff;
+  color: var(--text-light);
   border-radius: 15px;
   padding: 0.5em;
 
@@ -130,6 +132,26 @@ main {
   }
 }
 
+.style-song-name {
+  font-weight: var(--font-weight-bold);
+  color: var(--text-light);
+  align-self: flex-start;
+  margin-top: 0.5em;
+}
+
+.style-artist-name {
+  color: var(--text-light);
+  font-weight: var(--font-weight-light);
+  align-self: self-start;
+  margin-top: -0.4em;
+}
+
+.style-label-play {
+  color: var(--text-light);
+  font-weight: var(--font-weight-bold);
+  margin-top: 2em;
+}
+
 .radio-schedule {
   display: flex;
   flex-direction: column;
@@ -152,6 +174,7 @@ main {
 
       li {
         cursor: pointer;
+        color: light-dark(var(--text-dark), var(--text-light));
       }
     }
   }
@@ -200,7 +223,7 @@ main {
       width: 100%;
 
       li {
-        background-color: light-dark(var(--transparent-light), var(--transparent-dark));
+        color: light-dark(var(--text-dark), var(--text-light));
         border-radius: 15px;
         width: 100%;
         height: auto;
@@ -208,6 +231,7 @@ main {
 
         &.current-show {
           background-color: #0091ff;
+          color: var(--text-light);
         }
 
         .show-card {
@@ -260,6 +284,7 @@ main {
     align-items: center;
     justify-content: center;
     width: 100%;
+    color: light-dark(var(--text-dark), var(--text-light));
 
     .highlights-header {
       display: flex;
@@ -267,10 +292,11 @@ main {
       align-items: center;
       justify-content: space-between;
       width: 100%;
+      color: light-dark(var(--text-dark), var(--text-light));
     }
 
     article {
-      background-color: light-dark(var(--transparent-light), var(--transparent-dark));
+      color: light-dark(var(--text-dark), var(--text-light));
       padding: 1em;
       border-radius: 15px;
       word-break: keep-all;
@@ -284,7 +310,7 @@ main {
 }
 
 @media (min-width: 768px) {
-  main {
+  .radio-page {
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
@@ -313,7 +339,7 @@ main {
 }
 
 @media (min-width: 1024px) {
-  main {
+  .radio-page {
     grid-template-columns: 1fr 3fr 1fr;
   }
 
@@ -327,7 +353,8 @@ main {
   }
 }
 
-.like, form {
+.like,
+form {
   background: none;
   border: none;
   color: var(--bg-light);

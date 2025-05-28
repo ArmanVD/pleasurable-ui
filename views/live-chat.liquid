@@ -2,8 +2,9 @@
   , page: 'livechat'
   , radiostation: radiostation %}
 <body data-page="{{ page }}" data-station="{{ radiostation | downcase | replace: ' ', '-' | replace: '%', 'percent' }}">
-
-  <main>
+  {% render 'partials/header.liquid'
+    , radiostation: radiostation %}
+  <main class="main-content-live-chat-page">
     <div class="live-chat-wrapper">
       <article class="live-chat">
         {% if username %}
@@ -94,7 +95,6 @@
             <a href="#" class="style-label">
               Kijk live
             </a>
-            <button class="play-button"><img src="/assets/play-icon.svg" alt=""></button>
             <a href="/livechat" class="style-label">
               Live Chat
             </a>

@@ -4,22 +4,21 @@
 <body data-page="{{ page }}" data-station="{{ radiostation | downcase | replace: ' ', '-' | replace: '%', 'percent' }}">
   {% render 'partials/header.liquid'
     , radiostation: radiostation %}
-  <main>
+  <main class="radio-page" data-enhanced="radio-page">
     <aside class="left-sidebar">
       <article class="now-playing">
-        <img src="/images/tory-lanez.jpeg" alt="Tory Lanez - Hurt From Mercury" />
-        <p class="style-small">
+        <img src="/assets/tory-lanez.jpeg" alt="Tory Lanez - Hurt From Mercury" />
+        <p class="style-song-name">
           The Color Violet
         </p>
-        <p>
+        <p class="style-artist-name">
           Tory Lanez
         </p>
         <div class="player-controls">
-          <a href="#" class="style-label">
+          <a href="" class="style-label-play">
             Kijk live
           </a>
-          <button class="play-button"><img src="/assets/play-icon.svg" alt=""></button>
-          <a href="/livechat" class="style-label">
+          <a href="/livechat" class="style-label-play">
             Live Chat
           </a>
         </div>
@@ -29,7 +28,7 @@
         <ul>
           <li class="now-playing-history">
             <span class="time-active style-label">Nu</span>
-            <img src="/images/tory-lanez.jpeg" alt="Hurt From Mercury" />
+            <img src="/assets/tory-lanez.jpeg" alt="Hurt From Mercury" />
             <div>
               <p class="style-label">Hurt From Mercury</p>
               <p class="style-small">Tory Lanez</p>
@@ -37,7 +36,7 @@
           </li>
           <li class="now-playing-history">
             <span class="time">16:49</span>
-            <img src="/images/amy-winehouse.webp" alt="Back to Black" />
+            <img src="/assets/amy-winehouse.webp" alt="Back to Black" />
             <div>
               <p class="style-label">Back to Black</p>
               <p class="style-small">Amy Winehouse</p>
@@ -45,28 +44,19 @@
           </li>
           <li class="now-playing-history TCV">
             <span class="time">16:45</span>
-            <img src="/images/tory-lanez.jpeg" alt="The Color Violet" />
+            <img src="/assets/tory-lanez.jpeg" alt="The Color Violet" />
             <div>
               <p class="style-label">The Color Violet</p>
               <p class="style-small">Tory Lanez</p>
             </div>
           </li>
         </ul>
-        <a href="#" class="full-list-link style-label">VOLLEDIGE LIJST
+        <a href="#" class="full-list-link style-label-play">VOLLEDIGE LIJST
           <span>→</span>
         </a>
       </article>
     </aside>
     <article class="radio-schedule">
-      <section class="schedule-tabs">
-        <ul class="style-small">
-          <li class="style-label">PROGRAMMERING</li>
-          <li>DJ’S</li>
-          <li>PLAYLIST</li>
-          <li>FREQUENTIES</li>
-          <li>LIKES</li>
-        </ul>
-      </section>
       <section class="schedule-days">
         <ul>
           <li data-date="2025-03-31" data-weekday="1">
@@ -140,39 +130,73 @@
                     {% endif %}
                     <span class="time style-label">{{ show.start_time }} - {{ show.end_time }}</span>
 
-                    
+
                     {% assign is_liked = false %}
                     {% for like in likes.liked_shows %}
-                        {% if like.mh_show_id.id == show.id %}
-                            {% assign is_liked = true %}
-                        {% endif %}
+                      {% if like.mh_show_id.id == show.id %}
+                        {% assign is_liked = true %}
+                      {% endif %}
                     {% endfor %}
-                    
+
                     {% if is_liked %}
-        
-                    <form action="/veronica/dislike" method="POST" data-enhanced="form-{{ show.id }}">
-                        <input type="hidden" name="showid" value="{{ show.id }}">
+
+                      <form
+                        action="/veronica/dislike"
+                        method="POST"
+                        data-enhanced="form-{{ show.id }}">
+                        <input
+                          type="hidden"
+                          name="showid"
+                          value="{{ show.id }}">
                         <button class="like" type="submit">
-                            <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="11" fill="#0091FF" stroke="#FAFAFA" stroke-width="2"/>
-                            <path d="M5.92258 12.6448L11.8553 18.4328V8.15909C10.8135 6.88572 9.00951 6.56738 8.23777 6.56738C7.46604 6.56738 5.77788 7.00148 5.19908 8.73789C4.62027 10.4743 5.44024 12.066 5.92258 12.6448Z" fill="#FE0170"/>
-                            <path d="M17.788 12.6448L11.8553 18.4328V8.15909C12.8971 6.88572 14.7011 6.56738 15.4728 6.56738C16.2445 6.56738 17.9327 7.00148 18.5115 8.73789C19.0903 10.4743 18.2703 12.066 17.788 12.6448Z" fill="#FE0170"/>
-                            </svg>
+                          <svg
+                            width="45"
+                            height="45"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="11"
+                              fill="#0091FF"
+                              stroke="#FAFAFA"
+                              stroke-width="2" />
+                            <path d="M5.92258 12.6448L11.8553 18.4328V8.15909C10.8135 6.88572 9.00951 6.56738 8.23777 6.56738C7.46604 6.56738 5.77788 7.00148 5.19908 8.73789C4.62027 10.4743 5.44024 12.066 5.92258 12.6448Z" fill="#FE0170" />
+                            <path d="M17.788 12.6448L11.8553 18.4328V8.15909C12.8971 6.88572 14.7011 6.56738 15.4728 6.56738C16.2445 6.56738 17.9327 7.00148 18.5115 8.73789C19.0903 10.4743 18.2703 12.066 17.788 12.6448Z" fill="#FE0170" />
+                          </svg>
                         </button>
-                    </form>
-        
+                      </form>
+
                     {% else %}
-        
-                    <form action="/veronica/like" method="POST" data-enhanced="form-{{ show.id }}">
-                        <input type="hidden" name="showid" value="{{ show.id }}">
+
+                      <form
+                        action="/veronica/like"
+                        method="POST"
+                        data-enhanced="form-{{ show.id }}">
+                        <input
+                          type="hidden"
+                          name="showid"
+                          value="{{ show.id }}">
                         <button class="like" type="submit">
-                            <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="11" fill="#0091FF" stroke="#FAFAFA" stroke-width="2"/>
-                            <path d="M5.92258 12.6448L11.8553 18.4328V8.15909C10.8135 6.88572 9.00951 6.56738 8.23777 6.56738C7.46604 6.56738 5.77788 7.00148 5.19908 8.73789C4.62027 10.4743 5.44024 12.066 5.92258 12.6448Z" fill="currentcolor"/>
-                            <path d="M17.788 12.6448L11.8553 18.4328V8.15909C12.8971 6.88572 14.7011 6.56738 15.4728 6.56738C16.2445 6.56738 17.9327 7.00148 18.5115 8.73789C19.0903 10.4743 18.2703 12.066 17.788 12.6448Z" fill="currentcolor"/>
-                            </svg>
+                          <svg
+                            width="45"
+                            height="45"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="11"
+                              fill="#0091FF"
+                              stroke="#FAFAFA"
+                              stroke-width="2" />
+                            <path d="M5.92258 12.6448L11.8553 18.4328V8.15909C10.8135 6.88572 9.00951 6.56738 8.23777 6.56738C7.46604 6.56738 5.77788 7.00148 5.19908 8.73789C4.62027 10.4743 5.44024 12.066 5.92258 12.6448Z" fill="currentcolor" />
+                            <path d="M17.788 12.6448L11.8553 18.4328V8.15909C12.8971 6.88572 14.7011 6.56738 15.4728 6.56738C16.2445 6.56738 17.9327 7.00148 18.5115 8.73789C19.0903 10.4743 18.2703 12.066 17.788 12.6448Z" fill="currentcolor" />
+                          </svg>
                         </button>
-                    </form>
+                      </form>
 
                     {% endif %}
                   </div>
@@ -192,19 +216,19 @@
           <a href="#" class="show-all style-label">Toon alles</a>
         </div>
         <article class="highlight">
-          <img src="/images/kane.png" alt="KANE over comeback in Ook Goeiemorgen" />
+          <img src="/assets/kane.png" alt="KANE over comeback in Ook Goeiemorgen" />
           <div class="highlight-info">
             <h4 class="style-label">KANE over comeback in Ook Goeiemorgen: 'Briljant om even...</h4>
           </div>
         </article>
         <article class="highlight">
-          <img src="/images/the-indien.png" alt="The Indien speelt Be Yours" />
+          <img src="/assets/the-indien.png" alt="The Indien speelt Be Yours" />
           <div class="highlight-info">
             <h4 class="style-label">The Indien speelt Be Yours en nieuwe single Sleep When I'm ...</h4>
           </div>
         </article>
         <article class="highlight">
-          <img src="/images/frequenties.png" alt="Check jouw nieuwe frequenties" />
+          <img src="/assets/frequenties.png" alt="Check jouw nieuwe frequenties" />
           <div class="highlight-info">
             <h4 class="style-label">Check jouw nieuwe frequenties met de FM-checker van Radio V...</h4>
           </div>
@@ -215,7 +239,6 @@
   {% assign formatted_date = selected_day.formatted_date | default: "Selecteer een dag" %}
   {% render 'partials/foot.liquid' %}
 </body>
-
 
 
 <script type="module">
@@ -262,6 +285,6 @@
         newState.classList.add('succes')
     }
     form.outerHTML = newState.outerHTML
-})
+  })
 
 </script>
