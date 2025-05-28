@@ -48,7 +48,7 @@ Arman
 
 ## 404 Pagina 
 ### ontwerpkeuzes
-Kyan
+De likespagina is een pagina die wij ook zelf bedacht hebben om nog toe te voegen, dit leek ons handig voor als eindgebruikers op links klikken die nog niet werken / zijn verlopen. Wij hebben hier er voor gezorgd dat je makkelijk kan terugkeren naar de home of een gewenst radio zender. Wij hebben dit in de huisstijl van Veronica gehouden omdat dit ook de "homepage" is van de website daarom leek dit ons een gepast idee. 
 
 ## Installatie
 Arman
