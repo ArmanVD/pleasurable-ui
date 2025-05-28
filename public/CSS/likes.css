@@ -10,7 +10,7 @@ body {
   row-gap: 20px;
   overflow: scroll;
   height: 67vh;
-  background-color: var(--veronica-color-white);
+  background-color: var(--bg-color);
   padding-top: 8px;
 
   @media (min-width: 600px) {

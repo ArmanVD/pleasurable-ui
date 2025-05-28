@@ -133,6 +133,7 @@
   flex-direction: column;
   padding: 2rem 4rem 0 4rem;
   overflow: hidden;
+  background: var(--bg-color)
 }
 
 .chat-messages {
@@ -207,7 +208,7 @@
   cursor: pointer;
 }
 
-.chat-input 
+.chat-input {
   border-top: 1px solid #ddd;
   padding: 1rem 0;
   display: flex;
@@ -252,6 +253,7 @@
   flex-direction: row;
   height: 100vh;
   overflow: hidden;
+  background: var(--bg-color);
 }
 
 .chat-scroll-area {
