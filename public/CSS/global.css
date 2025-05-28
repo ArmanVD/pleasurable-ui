@@ -29,7 +29,6 @@
     }
 } */
 
-
 * {
   font-family: var(--main-font);
   box-sizing: border-box;
@@ -39,15 +38,17 @@
   text-decoration: none;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 html {
-  background-color: light-dark(var(--bg-light), var(--bg-dark));
-  color: light-dark(var(--text-light), var(--text-dark));
+  background-color: var(--bg-color);
+  color: var(--text-color);
   overflow-x: hidden;
 }
 
@@ -58,7 +59,7 @@ html {
 }
 
 .hoofd-nav a::after {
-  content: '';
+  content: "";
   position: absolute;
   background: var(--radio-veronica);
   height: 2px;

@@ -7,7 +7,7 @@ body {
   flex-direction: column;
   gap: 2em;
   padding: 1em;
-  background-color: light-dark(var(--bg-light), var(--bg-dark));
+  background-color: var(--bg-color);
 }
 
 .left-sidebar {
@@ -174,7 +174,7 @@ body {
 
       li {
         cursor: pointer;
-        color: light-dark(var(--text-dark), var(--text-light));
+        color: var(--text-color);
       }
     }
   }
@@ -223,7 +223,7 @@ body {
       width: 100%;
 
       li {
-        color: light-dark(var(--text-dark), var(--text-light));
+        color: var(--text-color);
         border-radius: 15px;
         width: 100%;
         height: auto;
@@ -284,7 +284,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    color: light-dark(var(--text-dark), var(--text-light));
+    color: var(--text-color);
 
     .highlights-header {
       display: flex;
@@ -292,11 +292,11 @@ body {
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      color: light-dark(var(--text-dark), var(--text-light));
+      color: var(--text-color);
     }
 
     article {
-      color: light-dark(var(--text-dark), var(--text-light));
+      color: var(--text-color);
       padding: 1em;
       border-radius: 15px;
       word-break: keep-all;

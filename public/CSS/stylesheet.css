@@ -19,6 +19,9 @@
 }
 
 :root {
+  --bg-color: var(--bg-light);
+  --text-color: var(--text-dark);
+
   /* Colors */
   --bg-light: #f0f0f0;
   --bg-dark: #1e1e1e;
@@ -33,8 +36,6 @@
 
   --activepagecolor: var(--mediahuis);
   --pink: #fe0170;
-
-  
 
   /* Fonts */
   --main-font: "Montserrat", sans-serif;
@@ -55,30 +56,34 @@
   --font-weight-regular: 400;
 }
 
+:root[data-theme="dark"] {
+  --bg-color: var(--bg-dark);
+  --text-color: var(--text-light);
+}
+
 body {
-
---font-black: "FontBlack";
---font-bold: "FontBold";
---font-regular: "FontRegular";
---font-size-h1: 20px;
---font-size-h2: 16px;
---font-size-p-main: 12px;
---font-size-p-small: 10px;
+  --font-black: "FontBlack";
+  --font-bold: "FontBold";
+  --font-regular: "FontRegular";
+  --font-size-h1: 20px;
+  --font-size-h2: 16px;
+  --font-size-p-main: 12px;
+  --font-size-p-small: 10px;
 }
 
 @font-face {
-font-family: "FontBlack";
-font-weight: 900;
-src: url("/assets/brutal-type-black.woff2") format("woff2");
+  font-family: "FontBlack";
+  font-weight: 900;
+  src: url("/assets/brutal-type-black.woff2") format("woff2");
 }
 
 @font-face {
-font-family: "FontBold";
-font-weight: bold;
-src: url("/assets/brutal-type-bold.woff2") format("woff2");
+  font-family: "FontBold";
+  font-weight: bold;
+  src: url("/assets/brutal-type-bold.woff2") format("woff2");
 }
 
 @font-face {
-font-family: "FontRegular";
-src: url("/assets/brutal-type-regular.woff2") format("woff2");
+  font-family: "FontRegular";
+  src: url("/assets/brutal-type-regular.woff2") format("woff2");
 }

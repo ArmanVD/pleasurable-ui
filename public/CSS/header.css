@@ -52,7 +52,7 @@
 
 .hoofd-nav {
   display: flex;
-  background-color: light-dark(var(--bg-light), var(--bg-dark));
+  background-color: var(--bg-color);
   padding-block: 16px;
   position: sticky;
   top: 120px;

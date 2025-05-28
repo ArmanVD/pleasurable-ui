@@ -1,137 +1,138 @@
-
 .mainfooter {
-    display: flex;
-    justify-content: center;
-    background-color: var(--bg-light);
-    position: fixed;
-    bottom: 0;
-    padding-block: 10px;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-light);
+  position: fixed;
+  bottom: 0;
+  padding-block: 10px;
+  width: 100%;
 
-    @media (min-width:1136px) {
-        display: none;
-    }
+  @media (min-width: 1136px) {
+    display: none;
+  }
 }
-    
+
 .mainfooter ul {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    list-style: none;
-    gap: 5%;
-    padding-block: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  list-style: none;
+  gap: 5%;
+  padding-block: 16px;
 }
 
 .mainfooter ul a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    width: 21vw;
-    font-family: var(--font-bold);
-    font-size: var(--font-size-normal);
-    color: var(--radio-veronica);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  width: 21vw;
+  font-family: var(--font-bold);
+  font-size: var(--font-size-normal);
+  color: var(--radio-veronica);
 }
 
 .mainfooter img {
-    color: var(--radio-veronica);
-    width: 24px;
+  color: var(--radio-veronica);
+  width: 24px;
 }
 
 .bigscreenfooter {
-    display: none;
+  display: none;
 
-    @media (min-width:1136px) {
-        display: flex;
-        justify-content: space-between;
-        background: #011564;
-        height: 380px;
-        padding-inline: 32px;
-        padding-block: 48px;
-    }
+  @media (min-width: 1136px) {
+    display: flex;
+    justify-content: space-between;
+    background: #011564;
+    height: 380px;
+    padding-inline: 32px;
+    padding-block: 48px;
+  }
 }
 
-.footercontent, .radiostations {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+.footercontent,
+.radiostations {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .footercontent > img {
-    width: 69px;
-    margin-bottom: 24px;
+  width: 69px;
+  margin-bottom: 24px;
 }
 
 .footercontent > h2 {
-    font-family: var(--font-black);
-    font-size: var(--font-size-1);
-    text-transform: capitalize;
-    color: var(--bg-light);
-    max-width: 200px;
-    margin-bottom: 24px;
+  font-family: var(--font-black);
+  font-size: var(--font-size-1);
+  text-transform: capitalize;
+  color: var(--bg-light);
+  max-width: 200px;
+  margin-bottom: 24px;
 }
 
 .footercontent > p {
-    color: var(--bg-light);
-    margin-bottom: 12px;
+  color: var(--bg-light);
+  margin-bottom: 12px;
 }
 
 .footermedia {
-    display: flex;
-    gap: 16px;
+  display: flex;
+  gap: 16px;
 }
 
 .footermedia a:hover {
-    scale: 1.5;
-    transition: 0.2s ease;
+  scale: 1.5;
+  transition: 0.2s ease;
 }
 
-.radiostations > a, .footercontent > a {
-    color: var(--bg-light);
-    text-decoration: none;
+.radiostations > a,
+.footercontent > a {
+  color: var(--bg-light);
+  text-decoration: none;
 }
 
 .footerlinks {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
 }
 
 .footerlinks nav {
-    width: 200px;
+  width: 200px;
 }
 
 .footerlinks ul {
-    display: flex;
-    flex-direction: column;
-    row-gap: 12px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
 }
 
 .footerlinks a {
-    position: relative;
-    display: block;
-    font-family: var(--font-regular);
-    color: var(--bg-light);
-    max-width: fit-content;
+  position: relative;
+  display: block;
+  font-family: var(--font-regular);
+  color: var(--bg-light);
+  max-width: fit-content;
 }
 
 .footerlinks a::after {
-    content: '';
-    position: absolute;
-    background: var(--bg-light);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    transition: width 0.3s ease, color 0.3s ease;
+  content: "";
+  position: absolute;
+  background: var(--bg-light);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  transition: width 0.3s ease, color 0.3s ease;
 }
-  
+
 .footerlinks a:hover::after {
-    width: 100%;
-    background: var(--bg-light);
+  width: 100%;
+  background: var(--bg-light);
 }
-  
+
 .footerlinks a:hover {
-    color: var(--bg-light);
-    transition: color 0.3s ease;
+  color: var(--bg-light);
+  transition: color 0.3s ease;
 }

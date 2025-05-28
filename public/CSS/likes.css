@@ -1,162 +1,211 @@
 body {
-    background: var(--bg-light);
+  background: var(--bg-light);
 }
 
 .programma-sec {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  row-gap: 20px;
+  overflow: scroll;
+  height: 67vh;
+  background-color: var(--veronica-color-white);
+  padding-top: 8px;
 
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    row-gap: 20px;
-    overflow: scroll;
-    height: 67vh;
-    background-color: var(--veronica-color-white);
-    padding-top: 8px;
+  @media (min-width: 600px) {
+    padding-top: 16px;
+    height: unset;
+  }
 
-    @media (min-width: 600px) {
-        padding-top: 16px;
-        height: unset;
-    }
-
-    @media (min-width: 1136px) {
-        padding-top: 32px;
-    }
-    
+  @media (min-width: 1136px) {
+    padding-top: 32px;
+  }
 }
 
 .programma {
-    display: grid;
-    grid-template-columns: 1fr 3fr 0.5fr 0.5fr;
-    /* grid-template-rows: 2fr 0.2fr 0.2fr; */
-    background-color: var(--bg-light);
-    box-shadow: 0px 0px 3px 3px var(--bg-dark);
-    width: 295px;
-    padding: 16px 16px 12px 12px;
-    border-radius: 8px;
-    row-gap: 8px;
-    column-gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 0.5fr 0.5fr;
+  /* grid-template-rows: 2fr 0.2fr 0.2fr; */
+  background-color: var(--bg-light);
+  box-shadow: 0px 0px 3px 3px var(--bg-dark);
+  width: 295px;
+  padding: 16px 16px 12px 12px;
+  border-radius: 8px;
+  row-gap: 8px;
+  column-gap: 8px;
 
-    @media ( min-width: 600px) {
-        width: 445px;
-    }
+  @media (min-width: 600px) {
+    width: 445px;
+  }
 }
 
 article:nth-of-type(1) {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .informatie {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-bottom: 24px;
-    grid-column: 2/5;
-    grid-row: 1/2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  grid-column: 2/5;
+  grid-row: 1/2;
 }
 
 .informatie h2 {
-    font-family: var(--font-black);
-    font-size: var(--font-size-h2);
-    color: var(--text-dark);
-    margin-bottom: 4px;
+  font-family: var(--font-black);
+  font-size: var(--font-size-h2);
+  color: var(--text-dark);
+  margin-bottom: 4px;
 }
 
 .informatie p {
-    grid-column: 1/4;
+  grid-column: 1/4;
+  font-family: var(--font-regular);
+  font-size: var(--font-size-p-main);
+  color: var(--text-dark);
+  max-width: 178px;
+
+  @media (min-width: 600px) {
+    max-width: 276px;
+  }
+}
+
+.programma div:nth-of-type(2),
+div:nth-of-type(3),
+div:nth-of-type(4) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  img {
+    width: 16px;
+  }
+
+  p,
+  time {
     font-family: var(--font-regular);
     font-size: var(--font-size-p-main);
-    color: var(--text-dark);
-    max-width: 178px;
-
-    @media (min-width: 600px) {
-        max-width: 276px;
-    }
-}  
-
-.programma div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4) {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    img {
-        width: 16px;
-    }  
-
-    p, time {
-        font-family: var(--font-regular);
-        font-size: var(--font-size-p-main);
-    }
+  }
 }
 
 .informatie-artiest {
-    color: var(--bg-light);
-    grid-column: 2/3;
-    grid-row: 3/4;
-    gap: 4px;
+  color: var(--bg-light);
+  grid-column: 2/3;
+  grid-row: 3/4;
+  gap: 4px;
 }
 
 .informatie-artiest p {
-    color: var(--text-dark);
+  color: var(--text-dark);
 }
 
 .persoon-radio-overlay {
-    grid-column: 1/2;
-    grid-row: 1/2;
+  grid-column: 1/2;
+  grid-row: 1/2;
 }
-        
+
 .persoon-radio {
-    grid-column: 1/2;
-    grid-row: 1/2;
-    max-width: 48px;
-    border-radius: 100%;
-    border: 2px solid var(--bg-light);
+  grid-column: 1/2;
+  grid-row: 1/2;
+  max-width: 48px;
+  border-radius: 100%;
+  border: 2px solid var(--bg-light);
 }
 
 .play {
-    grid-column: 4/5;
-    grid-row: 3/4;
-    background: none;
-    border: none;
+  grid-column: 4/5;
+  grid-row: 3/4;
+  background: none;
+  border: none;
 }
 
-.unlike, form {
-    grid-column: 3/4;
-    grid-row: 3/4;
-    background: none;
-    border: none;
-    color: var(--pink);
+.unlike,
+form {
+  grid-column: 3/4;
+  grid-row: 3/4;
+  background: none;
+  border: none;
+  color: var(--pink);
 }
-
 
 .loading button svg {
-    animation: loading 1s infinite ease-in-out;
+  animation: loading 1s infinite ease-in-out;
 }
 
 .succes button svg {
-    color: var(--pink);
+  color: var(--pink);
 }
 
 @keyframes loading {
-
-    0% { transform: rotate( 0deg ); }
-    5% { transform: rotate( 5deg ); }
-    15% { transform: rotate( 0deg ); scale: 1.1; color: var(--pink); }
-    20% { transform: rotate( -5deg ); }
-    25% { transform: rotate( -10deg ); }
-    30% { transform: rotate( -5deg ); scale: 1.1; }
-    35% { transform: rotate( 0deg ); }
-    40% { transform: rotate( 5deg ); }
-    45% { transform: rotate( 10deg ); scale: 1.1; color: var(--pink); }
-    50% { transform: rotate( 5deg ); }
-    55% { transform: rotate( 0deg ); }
-    60% { transform: rotate( -5deg ); scale: 1.1; }
-    65% { transform: rotate( -10deg ); }
-    70% { transform: rotate( -5deg ); }
-    75% { transform: rotate( 0deg ); scale: 1.1; color: var(--pink); }
-    80% { transform: rotate( 5deg ); }
-    85% { transform: rotate( 10deg ); }
-    90% { transform: rotate( 5deg ); scale: 1.1; }
-    95% { transform: rotate( 0deg ); }
-    100% { transform: rotate( -5deg ); }
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(5deg);
+  }
+  15% {
+    transform: rotate(0deg);
+    scale: 1.1;
+    color: var(--pink);
+  }
+  20% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  30% {
+    transform: rotate(-5deg);
+    scale: 1.1;
+  }
+  35% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(5deg);
+  }
+  45% {
+    transform: rotate(10deg);
+    scale: 1.1;
+    color: var(--pink);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  55% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(-5deg);
+    scale: 1.1;
+  }
+  65% {
+    transform: rotate(-10deg);
+  }
+  70% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(0deg);
+    scale: 1.1;
+    color: var(--pink);
+  }
+  80% {
+    transform: rotate(5deg);
+  }
+  85% {
+    transform: rotate(10deg);
+  }
+  90% {
+    transform: rotate(5deg);
+    scale: 1.1;
+  }
+  95% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
 }
