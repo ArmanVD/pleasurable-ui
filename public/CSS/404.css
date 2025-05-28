@@ -32,7 +32,7 @@
 }
 
 .content404 {
-  height: 90vh;
+  height: 100vh;
   background: var(--radio-veronica);
   display: flex;
   justify-content: center;
@@ -64,6 +64,7 @@
   margin-top: 100px;
   font-size: 16px;
   padding-inline: 16px;
+  color: var(--bg-light);
 
   @media (min-width: 600px) {
     font-size: var(--font-size-4);
@@ -99,9 +100,13 @@
 }
 
 .mainfooter404 {
+  display: flex;
+  justify-content: center;
   background-color: var(--bg-light);
-  position: sticky;
+  position: fixed;
   bottom: 0;
+  padding-block: 10px;
+  width: 100%;
 
   @media (min-width: 1136px) {
     display: none;
