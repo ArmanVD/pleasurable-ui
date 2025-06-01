@@ -14,7 +14,7 @@ Mediahuis wou graag een radiogids voor verschillende radiozenders ( Veronica, Sl
 
 ### Animated link hover
 
-Dit hebben wij gemaakt omdat wij denken dat dit de bezoeker van de website duidelijkere functionaliteit geeft over dat dit linkjes zijn, dit omdat er een kleurverandering plaatsvind en er een lijn onder onstaat.
+Dit hebben wij gemaakt omdat wij denken dat dit de bezoeker van de website duidelijkere functionaliteit geeft over dat dit linkjes zijn, dit omdat er een kleurverandering plaatsvind en er een lijn onder onstaat. Ook hebben wij dit relatief simpel maar toch aansprekend gelaten omdat dit goed past bij het uiterlijk van de website
 
 https://github.com/user-attachments/assets/e24db71f-8217-4d4d-8c9a-6cd4c9baaa40
 
