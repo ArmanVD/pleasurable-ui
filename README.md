@@ -60,6 +60,7 @@ Zoals u ziet werkt de website op elk soort scherm correct!
 * API directus
 * CSS met custom properties
 * CSS keyframes voor animaties en loadingstate
+* CSS mediaqueries voor responsive design
 
 ### hoe werkt een programma liken?
 
@@ -102,6 +103,18 @@ De 404 pagina is een pagina die wij ook zelf bedacht hebben om nog toe te voegen
 
 <img width="1213" alt="Screenshot 2025-05-28 at 10 04 31" src="https://github.com/user-attachments/assets/bcb4f026-ad91-4149-aa5f-076fc7361381" />
 
+### Gebruikte technieken
+
+* liquid
+* server.js met een 404 redirect
+* CSS mediaqueries voor responsive
+* CSS keyframes voor geanimeerde links
+
+### hoe werkt het doorlinken naar een 404 pagina
+
+wij hebben gekozen voor een custom 404 ( foutmelding ) pagina omdat wij dit ervaren als een fijne manier voor de eindgebruikers, een 404 pagina werkt bijvoorbeeld als je de verkeerde /url intoetst. Hiervoor hebben wij in de server een app.use moeten gebruiken die daarmee doorlinkt naar de custom 404 page ( 404.liquid ).
+
+https://github.com/ArmanVD/pleasurable-ui/blob/ab54a6e5aa83224ba6039a6e23429c59dc153aca/server.js#L291-L293
 
 ## Installatie
 Clone de repo lokaal, in de terminal van je code editor moeten de volgende commands uitgevoerd worden:
