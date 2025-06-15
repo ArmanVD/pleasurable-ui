@@ -53,6 +53,23 @@ De Likespagina is een pagina die wij zelf bedacht hebben! In de programma pagina
 
 Zoals u ziet werkt de website op elk soort scherm correct!
 
+### gebruikte technieken Likespagina
+
+* liquid templates
+* server
+* API directus
+* CSS met custom properties
+* CSS keyframes voor animaties en loadingstate
+
+### hoe werkt een programma liken?
+
+de programmas kan je liken omdat wij in de server een app.post hebben opgezet die linkt naar de directus database. dit hebben wij gedaan doormiddel van het opvragen van de id binnen de post aan de body een JSON.stringify met daarin een request te doen naar mh_accounts_id en mh_show_id ( dit is het id waarop er word gepost en het id van het programma dat geliked word. ) hierna word dit doorgestuurd met een response.redirect naar de programma pagina. Om een programma te kunnen liken hebben wij ook nog een HTML Form type submit gemaakt zodat de like daadwerkelijk verstuurd kan worden.
+
+https://github.com/ArmanVD/pleasurable-ui/blob/eaf225adccfa943953dfe44e5a8d91937a7e2996/views/radio-template.liquid#L173-L199
+
+https://github.com/ArmanVD/pleasurable-ui/blob/eaf225adccfa943953dfe44e5a8d91937a7e2996/server.js#L74-L88
+
+
 ## Livechat Pagina
 De LiveChat pagina is een extra feature die wij bedacht hebben voor op de website! Op deze manier kunnen gebruikers met elkaar communiceren over van alles en nog wat! Ze kunnen praten over Shows, DJ's, Muziek, etc. De styling hebben wij gedaan met de roze kleur die aangeleverd was en de blauwe kleur van radio veronica, om zo in de huidige styling te blijven. De gebruiker moet eerst inloggen, dit gebeurd eenvoudig door het invoeren van een gebruikersnaam. Het systeem checkt of er dan eerder berichten zijn gestuurd door deze gebruikersnaam, en zorgt er dan voor dat de gebruiker zijn/haar eigen berichten in het blauw ziet, en die van andere in het roze.
 
